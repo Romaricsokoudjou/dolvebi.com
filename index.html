@@ -3010,4 +3010,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log("Firebase est activé !");
 </script>
+
+   <h1 id="message-admin">Chargement du message...</h1>
+   <script type="module">
+  // 1. Importation des outils Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // 2. Votre configuration (La même que sur la photo)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDkwWEG9eBcb6NeoK-M-wFyWJ3rSp2LAeI",
+    authDomain: "admin-dolvebi.firebaseapp.com",
+    projectId: "admin-dolvebi",
+    storageBucket: "admin-dolvebi.firebasestorage.app",
+    messagingSenderId: "953429615835",
+    appId: "1:953429615835:web:fc9f1ca835a2060123d8fe",
+    measurementId: "G-DZTJJ4BPDP"
+  };
+
+  // 3. Initialisation
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. LE LIEN RÉEL : Écouter la base de données
+  // On demande à Firebase de surveiller le document "accueil" dans la collection "site_content"
+  const docRef = doc(db, "site_content", "accueil");
+
+  onSnapshot(docRef, (docSnap) => {
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      // On met à jour le texte sur votre site avec ce qui est écrit dans la base
+      document.getElementById("message-admin").innerText = data.texte;
+      console.log("Mise à jour reçue de Firebase !");
+    } else {
+      console.log("Le document n'existe pas encore dans Firestore.");
+      document.getElementById("message-admin").innerText = "Bienvenue chez Dolvebi !";
+    }
+  });
+</script>
 </body></html>
