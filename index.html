@@ -3047,5 +3047,73 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById("message-admin").innerText = "Bienvenue chez Dolvebi !";
     }
   });
+      <style>
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 500px;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px; /* Forme arrondie esthétique */
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .search-bar:focus {
+    border-color: #007bff; /* Change de couleur quand on clique */
+    box-shadow: 0 4px 10px rgba(0,123,255,0.2);
+  }
+</style>
+
+<div class="search-container">
+  <input type="text" class="search-bar" placeholder="Rechercher sur Dolvebi..." id="search-input">
+</div>
+
+<h1 id="message-admin" style="text-align: center; font-family: sans-serif; color: #333;">
+  Chargement du message...
+</h1>
+
+<script type="module">
+  // 1. Importation des outils Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // 2. Votre configuration (La même que sur la photo)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDkwWEG9eBcb6NeoK-M-wFyWJ3rSp2LAeI",
+    authDomain: "admin-dolvebi.firebaseapp.com",
+    projectId: "admin-dolvebi",
+    storageBucket: "admin-dolvebi.firebasestorage.app",
+    messagingSenderId: "953429615835",
+    appId: "1:953429615835:web:fc9f1ca835a2060123d8fe",
+    measurementId: "G-DZTJJ4BPDP"
+  };
+
+  // 3. Initialisation
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. LE LIEN RÉEL : Écouter la base de données
+  const docRef = doc(db, "site_content", "accueil");
+
+  onSnapshot(docRef, (docSnap) => {
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      document.getElementById("message-admin").innerText = data.texte;
+      console.log("Mise à jour reçue de Firebase !");
+    } else {
+      console.log("Le document n'existe pas encore dans Firestore.");
+      document.getElementById("message-admin").innerText = "Bienvenue chez Dolvebi !";
+    }
+  });
+</script>
 </script>
 </body></html>
