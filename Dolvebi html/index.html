@@ -1,0 +1,2992 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/Romaric%20S/Downloads/dolvebi_ecommerce_1.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOLVEBI — Boutique Premium | Douala, Cameroun</title>
+<meta name="description" content="Dolvebi — Votre boutique en ligne à Douala. Mode, Chaussures, Lingerie, Beauté, Électronique, Électroménager. Livraison gratuite à Douala.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./DOLVEBI — Boutique Premium _ Douala, Cameroun_files/css2" rel="stylesheet">
+<style>
+/* ============================================================
+   DOLVEBI — BOUTIQUE PREMIUM
+   Design System — Vert & Or
+   ============================================================ */
+:root {
+  --green: #1B4332;
+  --green-mid: #2D6A4F;
+  --green-light: #40916C;
+  --green-pale: #74C69D;
+  --green-glow: rgba(27,67,50,0.15);
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dark: #8B6914;
+  --gold-shimmer: #F5E4B0;
+  --black: #080808;
+  --black-soft: #0e0e0e;
+  --black-card: #131a14;
+  --black-border: #1e2d20;
+  --white: #FAFAF8;
+  --white-soft: #F0EEE8;
+  --gray-light: #B8B0A0;
+  --gray-mid: #6B6560;
+  --success: #2ECC71;
+  --error: #E74C3C;
+  --whatsapp: #25D366;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --nav-h: 80px;
+  --radius: 3px;
+  --shadow-green: 0 0 40px rgba(27,67,50,0.25);
+  --shadow-gold: 0 0 40px rgba(201,168,76,0.15);
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.6);
+  --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 2px; }
+
+h1,h2,h3 { font-family: var(--font-display); font-weight: 300; letter-spacing: 0.04em; }
+h4,h5,h6 { font-family: var(--font-body); font-weight: 500; }
+.label-gold { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+.label-green { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green-pale); }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+.divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto; }
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ── NAVIGATION ──────────────────────────────────────────── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(27,67,50,0.4);
+  transition: all 0.3s ease;
+}
+.nav-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-size: 28px; font-weight: 600; letter-spacing: 0.12em; color: var(--white); cursor: pointer; display: flex; align-items: center; gap: 4px; }
+.nav-logo span { color: var(--gold); }
+.nav-logo-sub { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; color: var(--green-pale); text-transform: uppercase; margin-top: -4px; display: block; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-light); text-decoration: none; cursor: pointer; transition: color 0.3s; position: relative; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); }
+.nav-dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute; top: calc(100% + 24px); left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  width: 260px; background: #0d1a0f;
+  border: 1px solid rgba(27,67,50,0.5); border-radius: var(--radius);
+  padding: 12px 0; opacity: 0; pointer-events: none;
+  transition: all 0.3s ease; box-shadow: var(--shadow-card);
+}
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: 10px 20px; font-size: 11px; letter-spacing: 0.12em; color: var(--gray-light) !important; text-transform: uppercase; border-left: 2px solid transparent; transition: all 0.2s !important; }
+.dropdown-menu a:hover { color: var(--gold) !important; border-left-color: var(--gold); background: rgba(201,168,76,0.05); padding-left: 28px; }
+.dropdown-menu a::after { display: none !important; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-icon-btn { width: 40px; height: 40px; border: 1px solid rgba(27,67,50,0.5); background: transparent; color: var(--gray-light); cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-size: 16px; position: relative; }
+.nav-icon-btn:hover { border-color: var(--gold); color: var(--gold); }
+.cart-badge { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; background: var(--gold); color: var(--black); border-radius: 50%; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.btn-nav { height: 40px; padding: 0 20px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: all 0.3s; }
+.btn-nav:hover { background: var(--gold); color: var(--black); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+#mobile-menu { position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: #0d1a0f; z-index: 999; padding: 32px 24px; display: none; flex-direction: column; gap: 4px; overflow-y: auto; }
+#mobile-menu.open { display: flex; }
+#mobile-menu a { font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(27,67,50,0.3); cursor: pointer; }
+
+/* ── BUTTONS ──────────────────────────────────────────────── */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 32px; height: 52px; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: all 0.35s; text-decoration: none; border: none; }
+.btn-gold { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%); background-size: 200% 100%; color: var(--black); }
+.btn-gold:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+.btn-green { background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); color: var(--white); }
+.btn-green:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(27,67,50,0.5); }
+.btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+.btn-outline-green { background: transparent; border: 1px solid var(--green-light); color: var(--green-pale); }
+.btn-outline-green:hover { background: var(--green-mid); color: var(--white); transform: translateY(-2px); }
+.btn-whatsapp { background: var(--whatsapp); color: white; border: none; font-size: 11px; }
+.btn-whatsapp:hover { background: #1ebe59; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
+.btn-sm { height: 40px; padding: 0 18px; font-size: 10px; }
+.btn-xs { height: 34px; padding: 0 14px; font-size: 9px; letter-spacing: 0.15em; }
+
+/* ── HOMEPAGE HERO ──────────────────────────────────────── */
+#hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 25% 50%, rgba(27,67,50,0.2) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 40%),
+              linear-gradient(180deg, #070e08 0%, #080808 100%);
+}
+.hero-grain { position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+.hero-particles { position: absolute; inset: 0; overflow: hidden; }
+.particle { position: absolute; width: 2px; height: 2px; background: var(--gold); border-radius: 50%; animation: float-up linear infinite; opacity: 0; }
+@keyframes float-up { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 0.4; } 100% { transform: translateY(-20vh) scale(1.5); opacity: 0; } }
+.hero-content { position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 0 24px; padding-top: var(--nav-h); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; animation: fade-up 0.8s ease 0.2s both; }
+.hero-eyebrow-line { width: 40px; height: 1px; background: var(--green-pale); }
+.hero-eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-pale); }
+.hero-title { font-family: var(--font-display); font-size: clamp(52px, 7.5vw, 110px); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; color: var(--white); animation: fade-up 0.8s ease 0.4s both; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-subtitle { max-width: 460px; margin-top: 28px; font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--gray-light); animation: fade-up 0.8s ease 0.6s both; }
+.hero-cta { display: flex; align-items: center; gap: 16px; margin-top: 48px; animation: fade-up 0.8s ease 0.8s both; flex-wrap: wrap; }
+.hero-delivery-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; background: rgba(27,67,50,0.25); border: 1px solid rgba(27,67,50,0.6); border-radius: 40px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--green-pale); animation: fade-up 0.8s ease 1s both; margin-top: 32px; width: fit-content; }
+.hero-delivery-badge span { color: var(--gold); }
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.07); animation: fade-up 0.8s ease 1s both; flex-wrap: wrap; }
+.hero-stat-num { font-family: var(--font-display); font-size: 36px; font-weight: 300; color: var(--gold); }
+.hero-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); margin-top: 4px; }
+.hero-deco { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 45%; height: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-deco-circle { width: 600px; height: 600px; border-radius: 50%; border: 1px solid rgba(27,67,50,0.2); position: absolute; animation: spin-slow 60s linear infinite; }
+.hero-deco-circle::before { content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: var(--green-pale); border-radius: 50%; }
+.hero-deco-circle:nth-child(2) { width: 440px; height: 440px; animation: spin-slow 40s linear infinite reverse; border-color: rgba(201,168,76,0.1); }
+.hero-deco-circle:nth-child(3) { width: 280px; height: 280px; animation: spin-slow 25s linear infinite; border-color: rgba(27,67,50,0.3); }
+.hero-deco-center { width: 140px; height: 140px; background: radial-gradient(circle, rgba(27,67,50,0.3) 0%, transparent 70%); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 11px; letter-spacing: 0.25em; color: var(--green-pale); text-align: center; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── MARQUEE ─────────────────────────────────────────────── */
+.marquee-section { border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); padding: 18px 0; overflow: hidden; background: var(--black-card); }
+.marquee-track { display: flex; gap: 0; white-space: nowrap; animation: marquee 35s linear infinite; }
+.marquee-item { display: inline-flex; align-items: center; gap: 20px; padding: 0 32px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); }
+.marquee-item span { color: var(--green-pale); font-size: 14px; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTION HEADERS ──────────────────────────────────────── */
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-title { font-size: clamp(34px, 5vw, 60px); font-weight: 300; line-height: 1.1; margin: 16px 0; }
+.section-subtitle { font-size: 14px; color: var(--gray-light); font-weight: 300; max-width: 460px; margin: 0 auto; line-height: 1.7; }
+
+/* ── CATEGORIES ──────────────────────────────────────────── */
+.categories-section { padding: 100px 0; }
+.categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+.cat-card { position: relative; overflow: hidden; cursor: pointer; aspect-ratio: 3/4; background: var(--black-card); transition: all 0.5s ease; }
+.cat-card:first-child { grid-column: span 2; aspect-ratio: auto; min-height: 340px; }
+.cat-card-bg { position: absolute; inset: 0; transition: transform 0.7s ease; }
+.cat-card:hover .cat-card-bg { transform: scale(1.05); }
+.cat-card:nth-child(1) .cat-card-bg { background: linear-gradient(135deg, #0a1a0d 0%, #122a16 50%, #0a1a0d 100%); }
+.cat-card:nth-child(2) .cat-card-bg { background: linear-gradient(160deg, #0d1708 0%, #162a10 100%); }
+.cat-card:nth-child(3) .cat-card-bg { background: linear-gradient(160deg, #120d18 0%, #1a1028 100%); }
+.cat-card:nth-child(4) .cat-card-bg { background: linear-gradient(160deg, #1a0d0d 0%, #280d15 100%); }
+.cat-card:nth-child(5) .cat-card-bg { background: linear-gradient(160deg, #0d1218 0%, #101e30 100%); }
+.cat-card:nth-child(6) .cat-card-bg { background: linear-gradient(160deg, #1a1a0d 0%, #2a2508 100%); }
+.cat-card:nth-child(7) .cat-card-bg { background: linear-gradient(160deg, #0d1a18 0%, #102826 100%); }
+.cat-card-pattern { position: absolute; inset: 0; opacity: 0.04; background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(201,168,76,0.3) 20px, rgba(201,168,76,0.3) 21px); }
+.cat-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 28px 24px; background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, transparent 100%); }
+.cat-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+.cat-name { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--white); display: block; }
+.cat-count { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-pale); margin-top: 5px; display: block; }
+.cat-arrow { position: absolute; top: 20px; right: 20px; width: 38px; height: 38px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 16px; opacity: 0; transform: translateX(-8px); transition: all 0.4s; }
+.cat-card:hover .cat-arrow { opacity: 1; transform: translateX(0); }
+.cat-card:hover .cat-name { color: var(--gold); }
+
+/* ── PRODUCT CARDS ───────────────────────────────────────── */
+.products-section { padding: 100px 0; background: var(--black-soft); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px; }
+.product-card { background: var(--black-card); border: 1px solid rgba(27,67,50,0.2); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: all 0.4s ease; position: relative; }
+.product-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.7); }
+.product-img-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #0f1a10; }
+.product-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; background: linear-gradient(145deg, #0d1a0f, #131a14); }
+.product-img-placeholder span { font-size: 52px; }
+.product-img-placeholder p { font-size: 9px; letter-spacing: 0.2em; color: var(--gray-mid); text-transform: uppercase; }
+.product-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+.product-badge { position: absolute; top: 14px; left: 14px; padding: 4px 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px; }
+.badge-new { background: var(--gold); color: var(--black); }
+.badge-sale { background: var(--error); color: white; }
+.badge-hot { background: #d4600a; color: white; }
+.badge-bestseller { background: var(--green-mid); color: white; }
+.product-wishlist { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 2px; color: var(--gray-light); opacity: 0; transition: all 0.3s; font-size: 14px; }
+.product-card:hover .product-wishlist { opacity: 1; }
+.product-wishlist:hover { color: #e74c3c; border-color: #e74c3c; }
+.product-info { padding: 18px; }
+.product-cat { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-pale); margin-bottom: 6px; }
+.product-name { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+.product-desc { font-size: 12px; color: var(--gray-mid); line-height: 1.6; margin-bottom: 14px; }
+.product-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.product-price { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--gold); }
+.product-price-old { font-size: 13px; color: var(--gray-mid); text-decoration: line-through; }
+.currency-display { font-size: 10px; color: var(--gray-mid); margin-bottom: 10px; }
+.product-actions { display: flex; gap: 8px; flex-direction: column; }
+.product-actions .btn-whatsapp { width: 100%; justify-content: center; height: 42px; font-size: 11px; letter-spacing: 0.1em; }
+.product-actions-row { display: flex; gap: 8px; }
+.product-actions-row .btn { flex: 1; justify-content: center; }
+
+/* ── PROMO BANNER ───────────────────────────────────────── */
+.promo-section { padding: 80px 0; background: var(--green); position: relative; overflow: hidden; }
+.promo-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 50%, rgba(201,168,76,0.05) 100%); }
+.promo-inner { position: relative; z-index: 2; text-align: center; }
+.promo-inner h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 300; margin: 16px 0; }
+.promo-inner h2 em { font-style: italic; color: var(--gold); }
+.promo-inner p { font-size: 14px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 40px; line-height: 1.8; }
+.promo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; text-align: left; }
+.promo-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius); padding: 32px; transition: all 0.3s; }
+.promo-card:hover { border-color: rgba(201,168,76,0.5); background: rgba(0,0,0,0.45); transform: translateY(-4px); }
+.promo-icon { font-size: 36px; margin-bottom: 16px; }
+.promo-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; margin-bottom: 10px; }
+.promo-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+.promo-tag { display: inline-block; padding: 4px 12px; background: var(--gold); color: var(--black); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 20px; margin-top: 14px; }
+
+/* ── DELIVERY INFO ──────────────────────────────────────── */
+.delivery-section { padding: 80px 0; background: var(--black); }
+.delivery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.delivery-card { background: var(--black-card); border: 1px solid rgba(27,67,50,0.2); padding: 40px 28px; text-align: center; transition: all 0.35s; }
+.delivery-card:hover { border-color: rgba(201,168,76,0.3); background: #131a14; }
+.delivery-icon { font-size: 40px; margin-bottom: 20px; }
+.delivery-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+.delivery-text { font-size: 12px; color: var(--gray-light); line-height: 1.7; }
+.delivery-highlight { color: var(--gold); font-weight: 600; font-size: 12px; display: block; margin-top: 10px; }
+
+/* ── TESTIMONIALS ────────────────────────────────────────── */
+.testimonials-section { padding: 100px 0; background: var(--black-soft); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card { background: var(--black-card); border: 1px solid rgba(27,67,50,0.2); border-radius: var(--radius); padding: 36px; transition: all 0.35s; }
+.testimonial-card:hover { border-color: rgba(201,168,76,0.25); }
+.testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 20px; letter-spacing: 4px; }
+.testimonial-text { font-family: var(--font-display); font-size: 17px; font-weight: 300; line-height: 1.7; color: var(--white-soft); margin-bottom: 24px; font-style: italic; }
+.testimonial-text::before { content: '"'; font-size: 48px; color: var(--green-mid); line-height: 0; vertical-align: -20px; margin-right: 8px; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar { width: 46px; height: 46px; background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.testimonial-name { font-weight: 600; font-size: 13px; }
+.testimonial-location { font-size: 11px; color: var(--gray-mid); margin-top: 2px; }
+
+/* ── SHOP PAGE ───────────────────────────────────────────── */
+.shop-hero { padding: 140px 0 60px; background: linear-gradient(180deg, #0a1a0c 0%, var(--black-soft) 100%); }
+.shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; padding: 60px 0 100px; }
+.shop-sidebar { position: sticky; top: 100px; align-self: start; }
+.sidebar-section { margin-bottom: 36px; }
+.sidebar-title { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(27,67,50,0.3); }
+.filter-option { display: flex; align-items: center; gap: 10px; padding: 9px 0; cursor: pointer; font-size: 12px; color: var(--gray-light); transition: color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.filter-option:hover { color: var(--white); }
+.filter-option.checked { color: var(--gold); }
+.filter-checkbox { width: 16px; height: 16px; border: 1px solid rgba(27,67,50,0.5); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--gold); flex-shrink: 0; }
+.filter-option.checked .filter-checkbox { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.filter-count { font-size: 10px; color: var(--gray-mid); margin-left: auto; }
+.shop-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+.shop-count { font-size: 12px; color: var(--gray-mid); }
+
+/* ── PRODUCT DETAIL ──────────────────────────────────────── */
+.product-detail-page { padding-top: var(--nav-h); }
+.product-detail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 60px 0 100px; align-items: start; }
+.product-detail-img { position: sticky; top: 100px; }
+.product-detail-main-img { aspect-ratio: 4/5; background: #0d1a0f; border: 1px solid rgba(27,67,50,0.3); display: flex; align-items: center; justify-content: center; font-size: 140px; border-radius: var(--radius); overflow: hidden; }
+.product-detail-info { padding-top: 20px; }
+.product-breadcrumb { font-size: 11px; color: var(--gray-mid); margin-bottom: 20px; letter-spacing: 0.1em; }
+.product-breadcrumb span { color: var(--gold); cursor: pointer; }
+.product-detail-cat { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green-pale); margin-bottom: 12px; }
+.product-detail-name { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+.product-detail-price { font-family: var(--font-display); font-size: 36px; font-weight: 400; color: var(--gold); margin-bottom: 8px; }
+.product-detail-currencies { font-size: 12px; color: var(--gray-mid); margin-bottom: 28px; }
+.product-detail-currencies span { color: var(--gray-light); }
+.product-detail-desc { font-size: 14px; color: var(--gray-light); line-height: 1.9; margin-bottom: 32px; }
+.option-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 12px; }
+.option-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.option-pill { padding: 8px 16px; border: 1px solid rgba(27,67,50,0.4); color: var(--gray-light); font-size: 12px; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+.option-pill.active, .option-pill:hover { border-color: var(--gold); color: var(--gold); }
+.qty-selector { display: flex; align-items: center; gap: 0; margin-bottom: 28px; }
+.qty-btn { width: 40px; height: 40px; border: 1px solid rgba(27,67,50,0.4); background: transparent; color: var(--white); font-size: 18px; cursor: pointer; transition: all 0.2s; }
+.qty-btn:hover { border-color: var(--gold); color: var(--gold); }
+.qty-input { width: 60px; height: 40px; border: 1px solid rgba(27,67,50,0.4); border-left: none; border-right: none; background: transparent; color: var(--white); text-align: center; font-size: 14px; }
+.detail-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.detail-actions .btn { width: 100%; justify-content: center; height: 52px; }
+.product-features { border-top: 1px solid rgba(27,67,50,0.25); padding-top: 28px; }
+.feature-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: var(--gray-light); }
+.feature-row span { color: var(--green-pale); font-size: 16px; width: 20px; }
+
+/* ── CART DRAWER ─────────────────────────────────────────── */
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1100; display: none; }
+.cart-drawer { position: fixed; top: 0; right: -420px; width: 420px; height: 100vh; background: #0d1a0f; z-index: 1200; transition: right 0.4s cubic-bezier(0.25,0.8,0.25,1); display: flex; flex-direction: column; border-left: 1px solid rgba(27,67,50,0.4); }
+.cart-drawer.open { right: 0; }
+.cart-header { padding: 24px 28px; border-bottom: 1px solid rgba(27,67,50,0.3); display: flex; align-items: center; justify-content: space-between; }
+.cart-title { font-family: var(--font-display); font-size: 22px; font-weight: 300; }
+.cart-close { width: 36px; height: 36px; border: 1px solid rgba(27,67,50,0.4); background: none; color: var(--gray-light); cursor: pointer; font-size: 16px; border-radius: 2px; transition: all 0.2s; }
+.cart-close:hover { border-color: var(--gold); color: var(--gold); }
+.cart-items { flex: 1; overflow-y: auto; padding: 20px 28px; }
+.cart-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(27,67,50,0.2); }
+.cart-item-img { width: 60px; height: 70px; background: #131a14; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; border-radius: 2px; }
+.cart-item-info { flex: 1; }
+.cart-item-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.cart-item-price { font-size: 14px; color: var(--gold); font-family: var(--font-display); }
+.cart-item-remove { color: var(--gray-mid); cursor: pointer; font-size: 14px; padding: 4px; transition: color 0.2s; }
+.cart-item-remove:hover { color: var(--error); }
+.cart-footer { padding: 24px 28px; border-top: 1px solid rgba(27,67,50,0.3); }
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.cart-total-label { font-size: 12px; color: var(--gray-mid); letter-spacing: 0.15em; text-transform: uppercase; }
+.cart-total-amount { font-family: var(--font-display); font-size: 26px; color: var(--gold); }
+.cart-delivery-note { font-size: 11px; color: var(--green-pale); margin-bottom: 20px; padding: 10px 14px; background: rgba(27,67,50,0.2); border-radius: 2px; border-left: 2px solid var(--green-light); }
+.cart-checkout-btn { width: 100%; height: 52px; background: var(--whatsapp); border: none; color: white; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.cart-checkout-btn:hover { background: #1ebe59; transform: translateY(-2px); }
+
+/* ── TOAST ───────────────────────────────────────────────── */
+.toast { position: fixed; bottom: 32px; right: 32px; background: #131a14; border: 1px solid rgba(27,67,50,0.5); color: var(--white); padding: 16px 24px; font-size: 13px; font-weight: 500; border-radius: var(--radius); z-index: 9999; transition: all 0.4s; box-shadow: 0 8px 32px rgba(0,0,0,0.5); max-width: 360px; }
+.toast-success { border-color: var(--green-light); }
+.toast.hidden { opacity: 0; transform: translateX(20px); pointer-events: none; }
+
+/* ── FLOATING WHATSAPP ───────────────────────────────────── */
+.whatsapp-float { position: fixed; bottom: 32px; left: 32px; z-index: 900; width: 56px; height: 56px; background: var(--whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all 0.3s; text-decoration: none; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+.whatsapp-float-tooltip { position: absolute; left: 68px; top: 50%; transform: translateY(-50%); background: var(--black-card); border: 1px solid rgba(27,67,50,0.4); padding: 8px 14px; border-radius: 3px; white-space: nowrap; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--white); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.whatsapp-float:hover .whatsapp-float-tooltip { opacity: 1; }
+
+/* ── ABOUT PAGE ──────────────────────────────────────────── */
+.about-page { padding-top: var(--nav-h); }
+.about-hero { padding: 80px 0 60px; background: linear-gradient(180deg, #0a1a0c 0%, var(--black) 100%); text-align: center; }
+.about-hero h1 { font-size: clamp(40px, 6vw, 80px); font-weight: 300; }
+.about-hero h1 em { color: var(--gold); }
+.about-mission { padding: 80px 0; }
+.about-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+.about-img-block { position: relative; }
+.about-img { width: 100%; aspect-ratio: 1/1.2; background: linear-gradient(135deg, var(--green) 0%, #0a1a0d 100%); display: flex; align-items: center; justify-content: center; font-size: 100px; border-radius: var(--radius); }
+.about-img-accent { position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; border: 1px solid rgba(201,168,76,0.3); border-radius: 2px; }
+.about-title { font-family: var(--font-display); font-size: clamp(30px, 4vw, 48px); font-weight: 300; margin: 16px 0 24px; }
+.about-p { font-size: 14px; color: var(--gray-light); line-height: 1.9; margin-bottom: 18px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: var(--black-card); border: 1px solid rgba(27,67,50,0.25); padding: 40px 32px; border-radius: var(--radius); transition: all 0.35s; }
+.value-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+.value-icon { font-size: 36px; margin-bottom: 20px; }
+.value-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; margin-bottom: 12px; }
+.value-desc { font-size: 13px; color: var(--gray-light); line-height: 1.7; }
+
+/* ── CONTACT PAGE ────────────────────────────────────────── */
+.contact-page { padding-top: var(--nav-h); }
+.contact-hero { padding: 80px 0 60px; background: linear-gradient(180deg, #0a1a0c 0%, var(--black) 100%); text-align: center; }
+.contact-hero h1 { font-size: clamp(40px, 6vw, 80px); font-weight: 300; }
+.contact-hero h1 em { color: var(--gold); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; padding: 60px 0 100px; align-items: start; }
+.contact-info-title { font-family: var(--font-display); font-size: clamp(26px, 3vw, 38px); font-weight: 300; margin: 16px 0 20px; }
+.contact-info-text { font-size: 14px; color: var(--gray-light); line-height: 1.8; margin-bottom: 36px; }
+.contact-channels { display: flex; flex-direction: column; gap: 12px; }
+.contact-channel { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--black-card); border: 1px solid rgba(27,67,50,0.25); border-radius: var(--radius); text-decoration: none; color: var(--white); transition: all 0.3s; }
+.contact-channel:hover { border-color: rgba(201,168,76,0.4); background: #131a14; }
+.channel-icon { font-size: 24px; width: 48px; height: 48px; background: rgba(27,67,50,0.25); display: flex; align-items: center; justify-content: center; border-radius: var(--radius); flex-shrink: 0; }
+.channel-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.channel-value { font-size: 13px; color: var(--gray-light); }
+.contact-form-card { background: var(--black-card); border: 1px solid rgba(27,67,50,0.25); padding: 48px; border-radius: var(--radius); }
+.contact-form-title { font-family: var(--font-display); font-size: 26px; font-weight: 300; margin-bottom: 32px; }
+.form-group { margin-bottom: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px; }
+.form-input { width: 100%; height: 48px; background: rgba(27,67,50,0.1); border: 1px solid rgba(27,67,50,0.35); color: var(--white); font-family: var(--font-body); font-size: 13px; padding: 0 16px; border-radius: var(--radius); outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--green-light); }
+.form-select { width: 100%; height: 48px; background: rgba(27,67,50,0.1); border: 1px solid rgba(27,67,50,0.35); color: var(--white); font-family: var(--font-body); font-size: 13px; padding: 0 16px; border-radius: var(--radius); outline: none; cursor: pointer; }
+textarea.form-input { height: 120px; padding: 14px 16px; resize: vertical; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer { background: #06100a; border-top: 1px solid rgba(27,67,50,0.4); padding: 80px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+.footer-brand { }
+.footer-logo { font-family: var(--font-display); font-size: 32px; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 16px; }
+.footer-logo span { color: var(--gold); }
+.footer-desc { font-size: 13px; color: var(--gray-mid); line-height: 1.8; margin-bottom: 24px; max-width: 280px; }
+.footer-social { display: flex; gap: 12px; }
+.social-btn { width: 38px; height: 38px; border: 1px solid rgba(27,67,50,0.4); background: transparent; color: var(--gray-light); display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s; }
+.social-btn:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col-title { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: var(--gray-mid); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 13px; color: var(--gray-mid); }
+.footer-contact-item span { color: var(--green-pale); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.footer-bottom { border-top: 1px solid rgba(27,67,50,0.25); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: var(--gray-mid); }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { font-size: 11px; color: var(--gray-mid); text-decoration: none; cursor: pointer; letter-spacing: 0.1em; transition: color 0.2s; }
+.footer-bottom-links a:hover { color: var(--gold); }
+.footer-delivery-badge { display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: rgba(27,67,50,0.2); border: 1px solid rgba(27,67,50,0.4); border-radius: var(--radius); margin-bottom: 40px; }
+.footer-delivery-badge p { font-size: 12px; color: var(--gray-light); line-height: 1.5; }
+.footer-delivery-badge strong { color: var(--green-pale); }
+
+/* ── NEWSLETTER ──────────────────────────────────────────── */
+.newsletter-section { background: var(--black-card); border: 1px solid rgba(27,67,50,0.25); border-radius: var(--radius); padding: 48px; margin-bottom: 60px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.newsletter-text h3 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: 8px; }
+.newsletter-text p { font-size: 13px; color: var(--gray-mid); }
+.newsletter-form { display: flex; gap: 0; flex: 1; max-width: 440px; }
+.newsletter-input { flex: 1; height: 48px; background: rgba(27,67,50,0.1); border: 1px solid rgba(27,67,50,0.35); border-right: none; color: var(--white); font-family: var(--font-body); font-size: 13px; padding: 0 20px; outline: none; border-radius: var(--radius) 0 0 var(--radius); }
+.newsletter-input:focus { border-color: var(--green-light); }
+.newsletter-btn { height: 48px; padding: 0 24px; background: var(--gold); border: none; color: var(--black); font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border-radius: 0 var(--radius) var(--radius) 0; white-space: nowrap; }
+.newsletter-btn:hover { background: var(--gold-light); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .shop-layout { grid-template-columns: 1fr; }
+  .shop-sidebar { position: static; }
+  .delivery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .btn-nav { display: none; }
+  .hamburger { display: flex; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-card:first-child { grid-column: span 2; }
+  .promo-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .product-detail-inner { grid-template-columns: 1fr; }
+  .product-detail-img { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .newsletter-section { flex-direction: column; }
+  .newsletter-form { width: 100%; max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .categories-grid { grid-template-columns: 1fr; }
+  .cat-card:first-child { grid-column: span 1; }
+  .hero-deco { display: none; }
+  .hero-stats { gap: 24px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-info { padding: 12px; }
+  .delivery-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cart-drawer { width: 100%; right: -100%; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage(&#39;home&#39;)">
+      DOL<span>VE</span>BI
+      <div style="display:flex;flex-direction:column;justify-content:center;margin-left:6px">
+        <span class="nav-logo-sub">Douala · Cameroun</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a id="nav-home" onclick="showPage(&#39;home&#39;)" class="active">Accueil</a></li>
+      <li class="nav-dropdown">
+        <a id="nav-shop" onclick="showPage(&#39;shop&#39;)">Boutique ▾</a>
+        <div class="dropdown-menu">
+          <a onclick="showCategory(&#39;Vêtements&#39;)">👗 Vêtements</a>
+          <a onclick="showCategory(&#39;Chaussures&#39;)">👠 Chaussures</a>
+          <a onclick="showCategory(&#39;Lingerie&#39;)">🌸 Lingerie</a>
+          <a onclick="showCategory(&#39;Beauté&#39;)">💄 Produits de Beauté</a>
+          <a onclick="showCategory(&#39;Compléments&#39;)">💊 Compléments Alimentaires</a>
+          <a onclick="showCategory(&#39;Électronique&#39;)">📱 Électronique</a>
+          <a onclick="showCategory(&#39;Électroménager&#39;)">🏠 Électroménager</a>
+        </div>
+      </li>
+      <li><a id="nav-about" onclick="showPage(&#39;about&#39;)">À propos</a></li>
+      <li><a id="nav-contact" onclick="showPage(&#39;contact&#39;)">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="toggleCart()" title="Panier">
+        🛒
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="btn-nav" onclick="contactWhatsApp()">💬 Commander</button>
+      <button class="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <a onclick="showPage(&#39;home&#39;)">🏠 Accueil</a>
+  <a onclick="showPage(&#39;shop&#39;)">🛍️ Boutique</a>
+  <a onclick="showCategory(&#39;Vêtements&#39;)">👗 Vêtements</a>
+  <a onclick="showCategory(&#39;Chaussures&#39;)">👠 Chaussures</a>
+  <a onclick="showCategory(&#39;Lingerie&#39;)">🌸 Lingerie</a>
+  <a onclick="showCategory(&#39;Beauté&#39;)">💄 Beauté</a>
+  <a onclick="showCategory(&#39;Compléments&#39;)">💊 Compléments</a>
+  <a onclick="showCategory(&#39;Électronique&#39;)">📱 Électronique</a>
+  <a onclick="showCategory(&#39;Électroménager&#39;)">🏠 Électroménager</a>
+  <a onclick="showPage(&#39;about&#39;)">📖 À propos</a>
+  <a onclick="showPage(&#39;contact&#39;)">📞 Contact</a>
+  <a href="https://wa.me/message/AWB2FUPZGYARM1" target="_blank" style="color:var(--whatsapp)">💬 Commander via WhatsApp</a>
+</div>
+
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <div class="cart-title">Mon Panier</div>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list">
+    <div style="text-align:center;padding:60px 0;color:var(--gray-mid)">
+      <div style="font-size:48px;margin-bottom:16px">🛒</div>
+      <p>Votre panier est vide</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cart-total">0 FCFA</span>
+    </div>
+    <div class="cart-delivery-note">🚚 Livraison <strong>GRATUITE</strong> à Douala · Autres villes : tarif à confirmer</div>
+    <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
+      💬 Commander via WhatsApp
+    </button>
+    <button class="btn btn-outline-green btn-sm" style="width:100%;justify-content:center;margin-top:8px" onclick="toggleCart()">Continuer mes achats</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast hidden" id="toast">
+  <span id="toast-msg"></span>
+</div>
+
+<!-- Floating WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/message/AWB2FUPZGYARM1" target="_blank">
+  💬
+  <span class="whatsapp-float-tooltip">Commander sur WhatsApp</span>
+</a>
+
+<!-- =====================================================
+     PAGE: ACCUEIL
+     ===================================================== -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-particles" id="particles"><div class="particle" style="left: 18.2153%; width: 2.44005px; height: 2.909px; animation-duration: 23.6882s; animation-delay: 11.8121s; opacity: 0;"></div><div class="particle" style="left: 48.076%; width: 1.73315px; height: 1.57624px; animation-duration: 13.9825s; animation-delay: 10.3608s; opacity: 0;"></div><div class="particle" style="left: 5.42758%; width: 2.30663px; height: 3.78549px; animation-duration: 24.3293s; animation-delay: 3.29242s; opacity: 0;"></div><div class="particle" style="left: 65.4836%; width: 3.25697px; height: 2.35616px; animation-duration: 21.6951s; animation-delay: 5.58069s; opacity: 0;"></div><div class="particle" style="left: 27.3303%; width: 2.7236px; height: 3.13639px; animation-duration: 23.3164s; animation-delay: 1.11584s; opacity: 0;"></div><div class="particle" style="left: 36.7865%; width: 1.44305px; height: 3.65001px; animation-duration: 21.9699s; animation-delay: 2.14463s; opacity: 0;"></div><div class="particle" style="left: 80.9006%; width: 3.57928px; height: 3.74055px; animation-duration: 11.2694s; animation-delay: 4.26708s; opacity: 0;"></div><div class="particle" style="left: 72.4261%; width: 2.26024px; height: 2.90646px; animation-duration: 21.007s; animation-delay: 2.76774s; opacity: 0;"></div><div class="particle" style="left: 20.5908%; width: 2.20441px; height: 1.90486px; animation-duration: 16.9433s; animation-delay: 14.2667s; opacity: 0;"></div><div class="particle" style="left: 72.2344%; width: 3.02705px; height: 1.87954px; animation-duration: 18.2427s; animation-delay: 14.1855s; opacity: 0;"></div><div class="particle" style="left: 39.5166%; width: 1.13964px; height: 1.17107px; animation-duration: 15.168s; animation-delay: 4.69953s; opacity: 0;"></div><div class="particle" style="left: 6.76051%; width: 3.4586px; height: 2.55083px; animation-duration: 25.0228s; animation-delay: 0.473451s; opacity: 0;"></div><div class="particle" style="left: 87.2514%; width: 1.38546px; height: 2.50028px; animation-duration: 29.9909s; animation-delay: 14.9422s; opacity: 0;"></div><div class="particle" style="left: 69.9585%; width: 3.66941px; height: 3.51595px; animation-duration: 21.6362s; animation-delay: 2.00689s; opacity: 0;"></div><div class="particle" style="left: 22.9762%; width: 1.92708px; height: 2.40829px; animation-duration: 27.057s; animation-delay: 13.3908s; opacity: 0;"></div><div class="particle" style="left: 37.0893%; width: 3.24907px; height: 3.82034px; animation-duration: 10.3012s; animation-delay: 4.69673s; opacity: 0;"></div><div class="particle" style="left: 51.8519%; width: 3.8992px; height: 3.98116px; animation-duration: 19.2792s; animation-delay: 14.5334s; opacity: 0;"></div><div class="particle" style="left: 53.8556%; width: 3.00454px; height: 3.28099px; animation-duration: 19.245s; animation-delay: 13.4347s; opacity: 0;"></div><div class="particle" style="left: 71.9599%; width: 2.88431px; height: 3.33192px; animation-duration: 24.556s; animation-delay: 13.3098s; opacity: 0;"></div><div class="particle" style="left: 89.4427%; width: 2.09745px; height: 2.11442px; animation-duration: 16.9753s; animation-delay: 2.01133s; opacity: 0;"></div></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Douala PK8 · Cameroun</span>
+      </div>
+      <h1 class="hero-title">
+        La Mode,<br>
+        la <em>Beauté</em>,<br>
+        le Tech.
+      </h1>
+      <p class="hero-subtitle">Votre boutique en ligne à Douala. Des produits sélectionnés, tendance et premium — livrés directement chez vous.</p>
+      <div class="hero-cta">
+        <button class="btn btn-gold" onclick="showPage(&#39;shop&#39;)">Découvrir la boutique →</button>
+        <button class="btn btn-outline-green" onclick="contactWhatsApp()">💬 Commander via WhatsApp</button>
+      </div>
+      <div class="hero-delivery-badge">
+        🚚 Livraison <span>gratuite</span> à Douala &nbsp;·&nbsp; Commande via WhatsApp 24h/7j
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Produits</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">1K+</div>
+          <div class="hero-stat-label">Clients satisfaits</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">7j/7</div>
+          <div class="hero-stat-label">Disponibilité</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">PK8</div>
+          <div class="hero-stat-label">Douala, Cameroun</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-deco">
+      <div class="hero-deco-circle"></div>
+      <div class="hero-deco-circle"></div>
+      <div class="hero-deco-circle"></div>
+      <div class="hero-deco-center">DOLVEBI</div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-section">
+    <div class="marquee-track" id="marquee-track"><span class="marquee-item">👗 Vêtements <span>✦</span></span><span class="marquee-item">👠 Chaussures <span>✦</span></span><span class="marquee-item">🌸 Lingerie <span>✦</span></span><span class="marquee-item">💄 Beauté <span>✦</span></span><span class="marquee-item">💊 Compléments <span>✦</span></span><span class="marquee-item">📱 Électronique <span>✦</span></span><span class="marquee-item">🏠 Électroménager <span>✦</span></span><span class="marquee-item">🚚 Livraison Gratuite à Douala <span>✦</span></span><span class="marquee-item">💬 Commande via WhatsApp <span>✦</span></span><span class="marquee-item">📍 Douala PK8 <span>✦</span></span><span class="marquee-item">✨ Qualité Garantie <span>✦</span></span><span class="marquee-item">7j/7 Disponible <span>✦</span></span><span class="marquee-item">👗 Vêtements <span>✦</span></span><span class="marquee-item">👠 Chaussures <span>✦</span></span><span class="marquee-item">🌸 Lingerie <span>✦</span></span><span class="marquee-item">💄 Beauté <span>✦</span></span><span class="marquee-item">💊 Compléments <span>✦</span></span><span class="marquee-item">📱 Électronique <span>✦</span></span><span class="marquee-item">🏠 Électroménager <span>✦</span></span><span class="marquee-item">🚚 Livraison Gratuite à Douala <span>✦</span></span><span class="marquee-item">💬 Commande via WhatsApp <span>✦</span></span><span class="marquee-item">📍 Douala PK8 <span>✦</span></span><span class="marquee-item">✨ Qualité Garantie <span>✦</span></span><span class="marquee-item">7j/7 Disponible <span>✦</span></span></div>
+  </div>
+
+  <!-- Categories -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label-gold">Nos catégories</div>
+        <h2 class="section-title">Tout ce dont vous avez besoin</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" style="margin-top:16px">Mode, beauté, électronique et plus encore — sélectionnés avec soin pour vous.</p>
+      </div>
+      <div class="categories-grid">
+        <div class="cat-card" onclick="showCategory(&#39;Vêtements&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">👗</span>
+            <span class="cat-name">Vêtements</span>
+            <span class="cat-count">Homme · Femme · Enfant</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Chaussures&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">👠</span>
+            <span class="cat-name">Chaussures</span>
+            <span class="cat-count">Toutes tailles disponibles</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Lingerie&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">🌸</span>
+            <span class="cat-name">Lingerie</span>
+            <span class="cat-count">Collections raffinées</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Beauté&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">💄</span>
+            <span class="cat-name">Beauté</span>
+            <span class="cat-count">Soins · Maquillage · Wigs</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Compléments&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">💊</span>
+            <span class="cat-name">Compléments</span>
+            <span class="cat-count">Santé &amp; bien-être</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Électronique&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">📱</span>
+            <span class="cat-name">Électronique</span>
+            <span class="cat-count">Smartphones · Laptops</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" onclick="showCategory(&#39;Électroménager&#39;)">
+          <div class="cat-card-bg"></div>
+          <div class="cat-card-pattern"></div>
+          <div class="cat-card-content">
+            <span class="cat-icon">🏠</span>
+            <span class="cat-name">Électroménager</span>
+            <span class="cat-count">Maison &amp; cuisine</span>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label-gold">Sélection du moment</div>
+        <h2 class="section-title">Produits <em style="font-style:italic;color:var(--gold)">populaires</em></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" style="margin-top:16px">Les articles les plus commandés cette semaine</p>
+      </div>
+      <div class="products-grid" id="featured-products">
+  <div class="product-card" onclick="showProductDetail(1)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👗</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe en Soie Pure</div>
+      <div class="product-desc">Robe en soie pure, coupe ajustée et élégante. Disponible en noir, bordea…</div>
+      <div class="product-price-row">
+        <span class="product-price">45 000 FCFA</span>
+        <span class="product-price-old">55 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $75 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20en%20Soie%20Pure%20%E2%80%94%2045%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(1)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(1)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(3)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👘</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe Cocktail Dorée</div>
+      <div class="product-desc">Robe cocktail en paillettes dorées, coupe asymétrique tendance. Tailles …</div>
+      <div class="product-price-row">
+        <span class="product-price">52 000 FCFA</span>
+        <span class="product-price-old">65 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $86 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20Cocktail%20Dor%C3%A9e%20%E2%80%94%2052%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(3)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(3)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(9)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👠</span>
+        <p>Chaussures</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Escarpins Talons Aiguilles</div>
+      <div class="product-desc">Escarpins nude 10cm, cuir verni premium. Bout pointu, semelle antidérapa…</div>
+      <div class="product-price-row">
+        <span class="product-price">42 000 FCFA</span>
+        <span class="product-price-old">52 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $70 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Escarpins%20Talons%20Aiguilles%20%E2%80%94%2042%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(9)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(9)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(14)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌸</span>
+        <p>Lingerie</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Lingerie</div>
+      <div class="product-name">Ensemble Dentelle Soie Rose</div>
+      <div class="product-desc">Ensemble 2 pièces en dentelle française et soie, soutien-gorge push-up +…</div>
+      <div class="product-price-row">
+        <span class="product-price">28 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $46 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Ensemble%20Dentelle%20Soie%20Rose%20%E2%80%94%2028%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(14)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(14)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(18)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💇</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Perruque HD Lace 24 pouces</div>
+      <div class="product-desc">Perruque HD Lace Front, cheveux humains Remy 100%, 24 pouces, ondulée na…</div>
+      <div class="product-price-row">
+        <span class="product-price">120 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $199 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Perruque%20HD%20Lace%2024%20pouces%20%E2%80%94%20120%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(18)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(18)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(20)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💄</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Palette Maquillage 40 Teintes</div>
+      <div class="product-desc">Palette ombres à paupières 40 teintes, fards mat et shimmer. Pigmentatio…</div>
+      <div class="product-price-row">
+        <span class="product-price">25 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $42 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Palette%20Maquillage%2040%20Teintes%20%E2%80%94%2025%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(20)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(20)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(24)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💊</span>
+        <p>Compléments</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Collagène Marin Premium</div>
+      <div class="product-desc">Collagène marin hydrolysé type I &amp; III, 10 000mg. Peau, cheveux, ongles …</div>
+      <div class="product-price-row">
+        <span class="product-price">32 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $53 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Collag%C3%A8ne%20Marin%20Premium%20%E2%80%94%2032%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(24)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(24)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(26)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🍫</span>
+        <p>Compléments</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Protéine Whey Chocolat</div>
+      <div class="product-desc">Whey protéine isolate 80% protéines, saveur chocolat intense. 1 kg, 33 p…</div>
+      <div class="product-price-row">
+        <span class="product-price">48 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $80 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Prot%C3%A9ine%20Whey%20Chocolat%20%E2%80%94%2048%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(26)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(26)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+      <div style="text-align:center;margin-top:48px">
+        <button class="btn btn-outline" onclick="showPage(&#39;shop&#39;)">Voir tous les produits →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <section class="promo-section">
+    <div class="container">
+      <div class="promo-inner">
+        <div class="label-gold" style="color:rgba(201,168,76,0.8)">Offres &amp; Avantages</div>
+        <h2>Pourquoi choisir <em>Dolvebi</em> ?</h2>
+        <p>Des produits tendance, des prix compétitifs et une expérience d'achat simple et sécurisée — directement depuis Douala.</p>
+        <div class="promo-grid">
+          <div class="promo-card">
+            <div class="promo-icon">🚚</div>
+            <h3>Livraison Gratuite</h3>
+            <p>Livraison offerte pour toutes vos commandes à Douala. Pour les autres villes du Cameroun, tarif selon la localisation.</p>
+            <span class="promo-tag">Douala uniquement</span>
+          </div>
+          <div class="promo-card">
+            <div class="promo-icon">✅</div>
+            <h3>Qualité Garantie</h3>
+            <p>Chaque produit est vérifié avant expédition. Insatisfait ? Nous trouvons toujours une solution pour vous.</p>
+            <span class="promo-tag">Satisfaction assurée</span>
+          </div>
+          <div class="promo-card">
+            <div class="promo-icon">💬</div>
+            <h3>Support WhatsApp</h3>
+            <p>Commandez, posez vos questions et suivez votre livraison directement sur WhatsApp, 7j/7.</p>
+            <span class="promo-tag">Réponse rapide</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="products-section" style="background:var(--black)">
+    <div class="container">
+      <div class="section-header">
+        <div class="label-green">Nouveautés</div>
+        <h2 class="section-title">Dernières <em style="font-style:italic;color:var(--gold)">arrivées</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="products-grid" id="new-products">
+  <div class="product-card" onclick="showProductDetail(2)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🧥</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Costume Homme Slim</div>
+      <div class="product-desc">Costume 2 pièces coupe slim moderne, tissu premium. Idéal pour les profe…</div>
+      <div class="product-price-row">
+        <span class="product-price">78 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $129 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Costume%20Homme%20Slim%20%E2%80%94%2078%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(2)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(2)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(4)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🪭</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Ensemble Traditionnel Femme</div>
+      <div class="product-desc">Ensemble 2 pièces en pagne wax de qualité supérieure. Coupe moderne sur …</div>
+      <div class="product-price-row">
+        <span class="product-price">38 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $63 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Ensemble%20Traditionnel%20Femme%20%E2%80%94%2038%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(4)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(4)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(6)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌺</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe Longue Maxi Florale</div>
+      <div class="product-desc">Robe maxi fluide à imprimé floral, dos ouvert. Tissu léger, taille élast…</div>
+      <div class="product-price-row">
+        <span class="product-price">34 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $56 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20Longue%20Maxi%20Florale%20%E2%80%94%2034%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(6)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(6)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(11)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👟</span>
+        <p>Chaussures</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Sneakers Femme Plateforme</div>
+      <div class="product-desc">Sneakers chunky tendance, plateforme 5cm. Tige cuir synthétique premium,…</div>
+      <div class="product-price-row">
+        <span class="product-price">35 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $58 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Sneakers%20Femme%20Plateforme%20%E2%80%94%2035%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(11)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(11)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+    </div>
+  </section>
+
+  <!-- Delivery Info -->
+  <section class="delivery-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label-gold">Livraison &amp; Service</div>
+        <h2 class="section-title">Comment ça <em style="font-style:italic;color:var(--gold)">fonctionne</em> ?</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <div class="delivery-icon">💬</div>
+          <div class="delivery-title">1. Commandez</div>
+          <p class="delivery-text">Choisissez votre produit et cliquez sur "Commander via WhatsApp". Notre équipe vous répond en quelques minutes.</p>
+          <span class="delivery-highlight">Simple &amp; rapide</span>
+        </div>
+        <div class="delivery-card">
+          <div class="delivery-icon">✅</div>
+          <div class="delivery-title">2. Confirmez</div>
+          <p class="delivery-text">Confirmez votre commande, votre adresse et le mode de paiement (Mobile Money, espèces, virement).</p>
+          <span class="delivery-highlight">Paiement flexible</span>
+        </div>
+        <div class="delivery-card">
+          <div class="delivery-icon">📦</div>
+          <div class="delivery-title">3. Préparation</div>
+          <p class="delivery-text">Votre commande est préparée avec soin depuis notre boutique à Douala PK8. Délai : 24-48h.</p>
+          <span class="delivery-highlight">Emballage soigné</span>
+        </div>
+        <div class="delivery-card">
+          <div class="delivery-icon">🚚</div>
+          <div class="delivery-title">4. Livraison</div>
+          <p class="delivery-text">Livraison <strong style="color:var(--gold)">GRATUITE à Douala</strong>. Autres villes du Cameroun : tarif selon localisation.</p>
+          <span class="delivery-highlight">Gratuit à Douala</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label-gold">Avis clients</div>
+        <h2 class="section-title">Ils nous font <em style="font-style:italic;color:var(--gold)">confiance</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="testimonials-grid" id="testimonials">
+  <div class="testimonial-card">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">J'ai commandé une robe pour mon mariage et elle était parfaite. Livraison rapide, emballage soigné. Je recommande vraiment Dolvebi !</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">👩🏾</div>
+      <div>
+        <div class="testimonial-name">Nadège Mballa</div>
+        <div class="testimonial-location">📍 Douala, Cameroun</div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonial-card">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">Le service WhatsApp est top ! J'ai posé mes questions, confirmé ma commande et reçu mes chaussures en 24h. Trop facile.</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">👨🏾</div>
+      <div>
+        <div class="testimonial-name">Patrick Essomba</div>
+        <div class="testimonial-location">📍 Douala PK10, Cameroun</div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonial-card">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">Mes produits de beauté étaient 100% authentiques, bien emballés et conformes à la description. Je suis cliente fidèle maintenant.</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">👩🏿</div>
+      <div>
+        <div class="testimonial-name">Aurore Kamga</div>
+        <div class="testimonial-location">📍 Yaoundé, Cameroun</div>
+      </div>
+    </div>
+  </div></div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section style="padding:80px 0;background:var(--black-card);border-top:1px solid rgba(27,67,50,0.3)">
+    <div class="container" style="text-align:center">
+      <div class="label-gold">Prêt à commander ?</div>
+      <h2 class="section-title" style="margin:16px 0">Contactez-nous <em style="font-style:italic;color:var(--gold)">maintenant</em></h2>
+      <p style="color:var(--gray-light);font-size:14px;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8">Notre équipe est disponible 7j/7 sur WhatsApp pour vous aider à passer votre commande.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-whatsapp" onclick="contactWhatsApp()" style="height:52px;padding:0 32px;font-size:12px">💬 Commander sur WhatsApp</button>
+        <button class="btn btn-outline" onclick="showPage(&#39;shop&#39;)">Parcourir la boutique</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <div class="container">
+    <div class="newsletter-section">
+      <div class="newsletter-text">
+        <h3>Restez informé(e)</h3>
+        <p>Nouveautés, promotions et offres exclusives — dans votre boîte mail.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input class="newsletter-input" type="email" placeholder="votre@email.com" required="">
+        <button class="newsletter-btn" type="submit">S'inscrire</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-delivery-badge">
+        <span style="font-size:28px">🚚</span>
+        <p><strong>Livraison GRATUITE à Douala</strong><br>Pour les autres villes du Cameroun, contactez-nous via WhatsApp pour un devis de livraison personnalisé.</p>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">DOL<span>VE</span>BI</div>
+          <p class="footer-desc">Votre boutique en ligne à Douala. Mode, beauté, électronique et électroménager — des produits premium livrés chez vous.</p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.facebook.com/share/1B1BDpSrNh" target="_blank">f</a>
+            <a class="social-btn" href="https://www.tiktok.com/@dolvebi" target="_blank">♪</a>
+            <a class="social-btn" href="https://wa.me/message/AWB2FUPZGYARM1" target="_blank">💬</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Boutique</div>
+          <ul class="footer-links">
+            <li><a onclick="showCategory(&#39;Vêtements&#39;)">Vêtements</a></li>
+            <li><a onclick="showCategory(&#39;Chaussures&#39;)">Chaussures</a></li>
+            <li><a onclick="showCategory(&#39;Lingerie&#39;)">Lingerie</a></li>
+            <li><a onclick="showCategory(&#39;Beauté&#39;)">Produits de Beauté</a></li>
+            <li><a onclick="showCategory(&#39;Compléments&#39;)">Compléments Alimentaires</a></li>
+            <li><a onclick="showCategory(&#39;Électronique&#39;)">Électronique</a></li>
+            <li><a onclick="showCategory(&#39;Électroménager&#39;)">Électroménager</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a onclick="showPage(&#39;about&#39;)">À propos de Dolvebi</a></li>
+            <li><a onclick="showPage(&#39;contact&#39;)">Nous contacter</a></li>
+            <li><a onclick="contactWhatsApp()">Commander sur WhatsApp</a></li>
+            <li><a>Politique de retour</a></li>
+            <li><a>Conditions de livraison</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item"><span>📍</span>Douala PK8, Cameroun</div>
+          <div class="footer-contact-item"><span>💬</span><a href="https://wa.me/message/AWB2FUPZGYARM1" target="_blank" style="color:var(--whatsapp);text-decoration:none">WhatsApp — Contact direct</a></div>
+          <div class="footer-contact-item"><span>📘</span><a href="https://www.facebook.com/share/1B1BDpSrNh" target="_blank" style="color:var(--gray-mid);text-decoration:none">Dolvebi Boutique</a></div>
+          <div class="footer-contact-item"><span>♪</span><a href="https://www.tiktok.com/@dolvebi" target="_blank" style="color:var(--gray-mid);text-decoration:none">@dolvebi</a></div>
+          <div style="margin-top:24px">
+            <div class="footer-col-title">Paiement accepté</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+              <span style="padding:6px 12px;background:rgba(27,67,50,0.2);border:1px solid rgba(27,67,50,0.4);border-radius:3px;font-size:10px;color:var(--gray-light);letter-spacing:0.1em">MTN MoMo</span>
+              <span style="padding:6px 12px;background:rgba(27,67,50,0.2);border:1px solid rgba(27,67,50,0.4);border-radius:3px;font-size:10px;color:var(--gray-light);letter-spacing:0.1em">Orange Money</span>
+              <span style="padding:6px 12px;background:rgba(27,67,50,0.2);border:1px solid rgba(27,67,50,0.4);border-radius:3px;font-size:10px;color:var(--gray-light);letter-spacing:0.1em">Espèces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Dolvebi. Tous droits réservés. Douala, Cameroun.</div>
+        <div class="footer-bottom-links">
+          <a>Confidentialité</a>
+          <a>Conditions d'utilisation</a>
+          <a onclick="showPage(&#39;contact&#39;)">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- =====================================================
+     PAGE: BOUTIQUE
+     ===================================================== -->
+<div class="page" id="page-shop">
+  <div style="padding-top:var(--nav-h)">
+    <div class="shop-hero">
+      <div class="container">
+        <div class="label-gold">Dolvebi Boutique</div>
+        <h1 style="font-size:clamp(40px,6vw,72px);font-weight:300;margin:16px 0">Notre <em style="font-style:italic;color:var(--gold)">Collection</em></h1>
+        <p style="font-size:14px;color:var(--gray-light);max-width:520px;line-height:1.8" id="shop-subtitle">Découvrez tous nos produits — mode, beauté, tech et plus encore.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="shop-layout">
+        <!-- Sidebar -->
+        <aside class="shop-sidebar">
+          <div class="sidebar-section">
+            <div class="sidebar-title">Catégories</div>
+            <div class="filter-option checked" onclick="filterByCategory(this,&#39;All&#39;)">
+              <div class="filter-checkbox">✓</div>
+              Tout voir
+              <span class="filter-count" id="total-count">38</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Vêtements&#39;)">
+              <div class="filter-checkbox"></div>
+              👗 Vêtements
+              <span class="filter-count">8</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Chaussures&#39;)">
+              <div class="filter-checkbox"></div>
+              👠 Chaussures
+              <span class="filter-count">5</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Lingerie&#39;)">
+              <div class="filter-checkbox"></div>
+              🌸 Lingerie
+              <span class="filter-count">4</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Beauté&#39;)">
+              <div class="filter-checkbox"></div>
+              💄 Beauté
+              <span class="filter-count">6</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Compléments&#39;)">
+              <div class="filter-checkbox"></div>
+              💊 Compléments
+              <span class="filter-count">4</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Électronique&#39;)">
+              <div class="filter-checkbox"></div>
+              📱 Électronique
+              <span class="filter-count">6</span>
+            </div>
+            <div class="filter-option" onclick="filterByCategory(this,&#39;Électroménager&#39;)">
+              <div class="filter-checkbox"></div>
+              🏠 Électroménager
+              <span class="filter-count">5</span>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <div class="sidebar-title">Commande rapide</div>
+            <p style="font-size:12px;color:var(--gray-mid);line-height:1.7;margin-bottom:16px">Vous voyez quelque chose qui vous plaît ? Contactez-nous directement sur WhatsApp.</p>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%;justify-content:center" onclick="contactWhatsApp()">💬 Commander sur WhatsApp</button>
+          </div>
+          <div class="sidebar-section" style="padding:20px;background:rgba(27,67,50,0.15);border:1px solid rgba(27,67,50,0.3);border-radius:var(--radius)">
+            <div style="font-size:22px;margin-bottom:10px">🚚</div>
+            <div style="font-size:11px;font-weight:700;color:var(--green-pale);margin-bottom:6px;letter-spacing:0.1em">LIVRAISON GRATUITE</div>
+            <div style="font-size:12px;color:var(--gray-mid);line-height:1.6">Sur toutes les commandes livrées à <strong style="color:var(--white)">Douala</strong>. Autres villes : tarif à confirmer.</div>
+          </div>
+        </aside>
+
+        <!-- Products -->
+        <div>
+          <div class="shop-header">
+            <span class="shop-count" id="shop-count">38 produits affichés</span>
+            <select class="form-select" style="width:auto;height:38px;padding:0 12px;font-size:11px" onchange="sortProducts(this.value)">
+              <option value="default">Trier par défaut</option>
+              <option value="price-asc">Prix croissant</option>
+              <option value="price-desc">Prix décroissant</option>
+              <option value="new">Nouveautés</option>
+            </select>
+          </div>
+          <div class="products-grid" id="shop-products">
+  <div class="product-card" onclick="showProductDetail(1)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👗</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe en Soie Pure</div>
+      <div class="product-desc">Robe en soie pure, coupe ajustée et élégante. Disponible en noir, bordea…</div>
+      <div class="product-price-row">
+        <span class="product-price">45 000 FCFA</span>
+        <span class="product-price-old">55 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $75 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20en%20Soie%20Pure%20%E2%80%94%2045%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(1)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(1)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(2)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🧥</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Costume Homme Slim</div>
+      <div class="product-desc">Costume 2 pièces coupe slim moderne, tissu premium. Idéal pour les profe…</div>
+      <div class="product-price-row">
+        <span class="product-price">78 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $129 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Costume%20Homme%20Slim%20%E2%80%94%2078%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(2)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(2)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(3)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👘</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe Cocktail Dorée</div>
+      <div class="product-desc">Robe cocktail en paillettes dorées, coupe asymétrique tendance. Tailles …</div>
+      <div class="product-price-row">
+        <span class="product-price">52 000 FCFA</span>
+        <span class="product-price-old">65 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $86 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20Cocktail%20Dor%C3%A9e%20%E2%80%94%2052%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(3)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(3)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(4)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🪭</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Ensemble Traditionnel Femme</div>
+      <div class="product-desc">Ensemble 2 pièces en pagne wax de qualité supérieure. Coupe moderne sur …</div>
+      <div class="product-price-row">
+        <span class="product-price">38 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $63 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Ensemble%20Traditionnel%20Femme%20%E2%80%94%2038%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(4)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(4)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(5)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👔</span>
+        <p>Vêtements</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Chemise Homme Lin Premium</div>
+      <div class="product-desc">Chemise en lin naturel, légère et respirante. Coupe droite élégante, par…</div>
+      <div class="product-price-row">
+        <span class="product-price">22 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $37 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Chemise%20Homme%20Lin%20Premium%20%E2%80%94%2022%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(5)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(5)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(6)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌺</span>
+        <p>Vêtements</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Robe Longue Maxi Florale</div>
+      <div class="product-desc">Robe maxi fluide à imprimé floral, dos ouvert. Tissu léger, taille élast…</div>
+      <div class="product-price-row">
+        <span class="product-price">34 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $56 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Robe%20Longue%20Maxi%20Florale%20%E2%80%94%2034%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(6)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(6)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(7)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🧣</span>
+        <p>Vêtements</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Blazer Femme Structuré</div>
+      <div class="product-desc">Blazer à épaulettes légères, coupe architecturale. En sergé de viscose, …</div>
+      <div class="product-price-row">
+        <span class="product-price">48 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $80 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Blazer%20Femme%20Structur%C3%A9%20%E2%80%94%2048%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(7)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(7)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(8)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👖</span>
+        <p>Vêtements</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Vêtements</div>
+      <div class="product-name">Jean Homme Skinny Premium</div>
+      <div class="product-desc">Jean skinny 5 poches, denim stretch stretch comfort. Noir, bleu indigo e…</div>
+      <div class="product-price-row">
+        <span class="product-price">28 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $46 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Jean%20Homme%20Skinny%20Premium%20%E2%80%94%2028%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(8)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(8)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(9)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👠</span>
+        <p>Chaussures</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Escarpins Talons Aiguilles</div>
+      <div class="product-desc">Escarpins nude 10cm, cuir verni premium. Bout pointu, semelle antidérapa…</div>
+      <div class="product-price-row">
+        <span class="product-price">42 000 FCFA</span>
+        <span class="product-price-old">52 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $70 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Escarpins%20Talons%20Aiguilles%20%E2%80%94%2042%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(9)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(9)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(10)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👞</span>
+        <p>Chaussures</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Derby Homme Cuir Veau</div>
+      <div class="product-desc">Derby en cuir de veau Italian, semelle cuir cousue main. Finition vernis…</div>
+      <div class="product-price-row">
+        <span class="product-price">65 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $108 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Derby%20Homme%20Cuir%20Veau%20%E2%80%94%2065%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(10)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(10)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(11)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👟</span>
+        <p>Chaussures</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Sneakers Femme Plateforme</div>
+      <div class="product-desc">Sneakers chunky tendance, plateforme 5cm. Tige cuir synthétique premium,…</div>
+      <div class="product-price-row">
+        <span class="product-price">35 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $58 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Sneakers%20Femme%20Plateforme%20%E2%80%94%2035%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(11)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(11)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(12)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🩴</span>
+        <p>Chaussures</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Sandales Homme Cuir</div>
+      <div class="product-desc">Sandales en cuir naturel, semelle anatomique. Idéal pour la chaleur de D…</div>
+      <div class="product-price-row">
+        <span class="product-price">25 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $42 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Sandales%20Homme%20Cuir%20%E2%80%94%2025%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(12)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(12)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(13)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🥾</span>
+        <p>Chaussures</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Chaussures</div>
+      <div class="product-name">Boots Chelsea Femme</div>
+      <div class="product-desc">Boots Chelsea en cuir suédé, talon 5cm. Élastiques latéraux, bout arrond…</div>
+      <div class="product-price-row">
+        <span class="product-price">55 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $91 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Boots%20Chelsea%20Femme%20%E2%80%94%2055%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(13)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(13)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(14)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌸</span>
+        <p>Lingerie</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Lingerie</div>
+      <div class="product-name">Ensemble Dentelle Soie Rose</div>
+      <div class="product-desc">Ensemble 2 pièces en dentelle française et soie, soutien-gorge push-up +…</div>
+      <div class="product-price-row">
+        <span class="product-price">28 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $46 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Ensemble%20Dentelle%20Soie%20Rose%20%E2%80%94%2028%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(14)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(14)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(15)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🖤</span>
+        <p>Lingerie</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Lingerie</div>
+      <div class="product-name">Body Dentelle Noir</div>
+      <div class="product-desc">Body string en dentelle fine, découpe dos ouvert. Tissu stretch conforta…</div>
+      <div class="product-price-row">
+        <span class="product-price">22 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $37 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Body%20Dentelle%20Noir%20%E2%80%94%2022%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(15)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(15)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(16)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🤍</span>
+        <p>Lingerie</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Lingerie</div>
+      <div class="product-name">Nuisette Soie Ivoire</div>
+      <div class="product-desc">Nuisette en satin de soie, bretelles fines, coupe empire. Tailles XS à X…</div>
+      <div class="product-price-row">
+        <span class="product-price">18 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $30 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Nuisette%20Soie%20Ivoire%20%E2%80%94%2018%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(16)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(16)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(17)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💜</span>
+        <p>Lingerie</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Lingerie</div>
+      <div class="product-name">Ensemble Lingerie Sport Chic</div>
+      <div class="product-desc">Bralette + shorty en microfibre stretch. Confort absolu, style actif &amp; s…</div>
+      <div class="product-price-row">
+        <span class="product-price">24 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $40 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Ensemble%20Lingerie%20Sport%20Chic%20%E2%80%94%2024%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(17)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(17)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(18)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💇</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Perruque HD Lace 24 pouces</div>
+      <div class="product-desc">Perruque HD Lace Front, cheveux humains Remy 100%, 24 pouces, ondulée na…</div>
+      <div class="product-price-row">
+        <span class="product-price">120 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $199 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Perruque%20HD%20Lace%2024%20pouces%20%E2%80%94%20120%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(18)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(18)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(19)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>✨</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Crème Anti-Taches Premium</div>
+      <div class="product-desc">Crème éclat à base de vitamine C et niacinamide. Formule dermatologique …</div>
+      <div class="product-price-row">
+        <span class="product-price">18 500 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $31 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Cr%C3%A8me%20Anti-Taches%20Premium%20%E2%80%94%2018%E2%80%AF500%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(19)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(19)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(20)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💄</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Palette Maquillage 40 Teintes</div>
+      <div class="product-desc">Palette ombres à paupières 40 teintes, fards mat et shimmer. Pigmentatio…</div>
+      <div class="product-price-row">
+        <span class="product-price">25 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $42 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Palette%20Maquillage%2040%20Teintes%20%E2%80%94%2025%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(20)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(20)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(21)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💫</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-sale">PROMO</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Sérum Éclat Vitamine C</div>
+      <div class="product-desc">Sérum concentré vitamine C 20%, acide hyaluronique. Anti-âge, anti-tache…</div>
+      <div class="product-price-row">
+        <span class="product-price">16 000 FCFA</span>
+        <span class="product-price-old">20 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $27 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20S%C3%A9rum%20%C3%89clat%20Vitamine%20C%20%E2%80%94%2016%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(21)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(21)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(22)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👁️</span>
+        <p>Beauté</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Kit Extensions Cils 3D</div>
+      <div class="product-desc">Extensions de cils 3D effet volume intense, faux cils dramatiques. Kit c…</div>
+      <div class="product-price-row">
+        <span class="product-price">8 500 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $14 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Kit%20Extensions%20Cils%203D%20%E2%80%94%208%E2%80%AF500%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(22)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(22)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(23)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌿</span>
+        <p>Beauté</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Beauté</div>
+      <div class="product-name">Huile Argan Cheveux Pure</div>
+      <div class="product-desc">Huile d'argan 100% pure du Maroc. Nourrit, répare et illumine les cheveu…</div>
+      <div class="product-price-row">
+        <span class="product-price">12 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $20 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Huile%20Argan%20Cheveux%20Pure%20%E2%80%94%2012%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(23)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(23)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(24)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💊</span>
+        <p>Compléments</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Collagène Marin Premium</div>
+      <div class="product-desc">Collagène marin hydrolysé type I &amp; III, 10 000mg. Peau, cheveux, ongles …</div>
+      <div class="product-price-row">
+        <span class="product-price">32 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $53 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Collag%C3%A8ne%20Marin%20Premium%20%E2%80%94%2032%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(24)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(24)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(25)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💉</span>
+        <p>Compléments</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Complexe Vitamines B + C</div>
+      <div class="product-desc">Complexe vitamines B1, B6, B12 + Vitamine C 1000mg. Énergie, immunité et…</div>
+      <div class="product-price-row">
+        <span class="product-price">15 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $25 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Complexe%20Vitamines%20B%20%2B%20C%20%E2%80%94%2015%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(25)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(25)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(26)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🍫</span>
+        <p>Compléments</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Protéine Whey Chocolat</div>
+      <div class="product-desc">Whey protéine isolate 80% protéines, saveur chocolat intense. 1 kg, 33 p…</div>
+      <div class="product-price-row">
+        <span class="product-price">48 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $80 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Prot%C3%A9ine%20Whey%20Chocolat%20%E2%80%94%2048%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(26)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(26)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(27)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🐟</span>
+        <p>Compléments</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Compléments</div>
+      <div class="product-name">Oméga 3 Ultra Concentré</div>
+      <div class="product-desc">Oméga 3 EPA+DHA concentré, huile de poisson purifiée. Cœur, cerveau et i…</div>
+      <div class="product-price-row">
+        <span class="product-price">22 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $37 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Om%C3%A9ga%203%20Ultra%20Concentr%C3%A9%20%E2%80%94%2022%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(27)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(27)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(28)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>📱</span>
+        <p>Électronique</p>
+      </div>
+      <span class="product-badge badge-hot">🔥 TENDANCE</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">iPhone 15 Pro Max 256GB</div>
+      <div class="product-desc">iPhone 15 Pro Max 256GB, titane naturel, puce A17 Pro. Débloqué toutes o…</div>
+      <div class="product-price-row">
+        <span class="product-price">580 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $963 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20iPhone%2015%20Pro%20Max%20256GB%20%E2%80%94%20580%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(28)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(28)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(29)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>📲</span>
+        <p>Électronique</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">Samsung Galaxy S24 Ultra</div>
+      <div class="product-desc">Galaxy S24 Ultra 512GB, S Pen, Snapdragon 8 Gen 3, appareil photo 200MP.…</div>
+      <div class="product-price-row">
+        <span class="product-price">540 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $896 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Samsung%20Galaxy%20S24%20Ultra%20%E2%80%94%20540%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(29)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(29)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(30)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>💻</span>
+        <p>Électronique</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">MacBook Air M3 15"</div>
+      <div class="product-desc">MacBook Air M3, 16GB RAM, 512GB SSD. Batterie 18h. Idéal pour créatifs e…</div>
+      <div class="product-price-row">
+        <span class="product-price">920 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $1527 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20MacBook%20Air%20M3%2015%22%20%E2%80%94%20920%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(30)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(30)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(31)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🎧</span>
+        <p>Électronique</p>
+      </div>
+      <span class="product-badge badge-sale">PROMO</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">Écouteurs Sony WH-1000XM5</div>
+      <div class="product-desc">Casque Sony WH-1000XM5, ANC leader du marché, autonomie 30h, son Hi-Res.…</div>
+      <div class="product-price-row">
+        <span class="product-price">185 000 FCFA</span>
+        <span class="product-price-old">220 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $307 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20%C3%89couteurs%20Sony%20WH-1000XM5%20%E2%80%94%20185%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(31)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(31)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(32)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>📟</span>
+        <p>Électronique</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">Tablette Samsung Tab S9</div>
+      <div class="product-desc">Samsung Galaxy Tab S9, 11", AMOLED, S Pen inclus. 128GB, 8GB RAM. Pour p…</div>
+      <div class="product-price-row">
+        <span class="product-price">420 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $697 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Tablette%20Samsung%20Tab%20S9%20%E2%80%94%20420%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(32)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(32)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(33)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🖥️</span>
+        <p>Électronique</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électronique</div>
+      <div class="product-name">HP EliteBook i7 16GB</div>
+      <div class="product-desc">HP EliteBook Intel i7 13e Gen, 16GB RAM, 512GB NVMe SSD, 14" FHD IPS. En…</div>
+      <div class="product-price-row">
+        <span class="product-price">620 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $1029 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20HP%20EliteBook%20i7%2016GB%20%E2%80%94%20620%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(33)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(33)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(34)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🥤</span>
+        <p>Électroménager</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électroménager</div>
+      <div class="product-name">Mixeur Blender Pro 2L</div>
+      <div class="product-desc">Blender professionnel 2L, 1500W, lames en acier inox. Jus, smoothies, sa…</div>
+      <div class="product-price-row">
+        <span class="product-price">45 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $75 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Mixeur%20Blender%20Pro%202L%20%E2%80%94%2045%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(34)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(34)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(35)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>👕</span>
+        <p>Électroménager</p>
+      </div>
+      <span class="product-badge badge-bestseller">⭐ BEST SELLER</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électroménager</div>
+      <div class="product-name">Fer à Repasser Vapeur 3000W</div>
+      <div class="product-desc">Fer à vapeur 3000W, semelle céramique anti-adhésive, réservoir 350ml. Ré…</div>
+      <div class="product-price-row">
+        <span class="product-price">28 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $46 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Fer%20%C3%A0%20Repasser%20Vapeur%203000W%20%E2%80%94%2028%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(35)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(35)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(36)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🧊</span>
+        <p>Électroménager</p>
+      </div>
+      
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électroménager</div>
+      <div class="product-name">Mini Réfrigérateur 60L</div>
+      <div class="product-desc">Mini frigo 60L, compartiment congélateur. Économique en énergie, silenci…</div>
+      <div class="product-price-row">
+        <span class="product-price">95 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $158 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Mini%20R%C3%A9frig%C3%A9rateur%2060L%20%E2%80%94%2095%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(36)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(36)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(37)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>🌀</span>
+        <p>Électroménager</p>
+      </div>
+      <span class="product-badge badge-new">NOUVEAU</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électroménager</div>
+      <div class="product-name">Aspirateur Sans Fil Cyclone</div>
+      <div class="product-desc">Aspirateur sans fil 25V, 80min d'autonomie. Filtre HEPA, 3 têtes incluse…</div>
+      <div class="product-price-row">
+        <span class="product-price">78 000 FCFA</span>
+        
+      </div>
+      <div class="currency-display">≈ $129 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Aspirateur%20Sans%20Fil%20Cyclone%20%E2%80%94%2078%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(37)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(37)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card" onclick="showProductDetail(38)">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>☕</span>
+        <p>Électroménager</p>
+      </div>
+      <span class="product-badge badge-sale">PROMO</span>
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast(&#39;Ajouté aux favoris ♥&#39;,&#39;success&#39;)">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">Électroménager</div>
+      <div class="product-name">Cafetière Expresso Automatique</div>
+      <div class="product-desc">Machine à café automatique, broyeur intégré, écran tactile. Espresso, ca…</div>
+      <div class="product-price-row">
+        <span class="product-price">120 000 FCFA</span>
+        <span class="product-price-old">145 000 FCFA</span>
+      </div>
+      <div class="currency-display">≈ $199 USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=Bonjour%20Dolvebi%20!%20Je%20veux%20commander%20%3A%20Cafeti%C3%A8re%20Expresso%20Automatique%20%E2%80%94%20120%E2%80%AF000%20FCFA" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(38)">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(38)">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     PAGE: PRODUIT DÉTAIL
+     ===================================================== -->
+<div class="page" id="page-product">
+  <div class="product-detail-page">
+    <div class="container">
+      <div class="product-detail-inner">
+        <div class="product-detail-img">
+          <div class="product-detail-main-img" id="product-main-img">
+            <span style="font-size:120px">📦</span>
+          </div>
+          <div style="margin-top:16px;padding:16px;background:rgba(27,67,50,0.1);border:1px solid rgba(27,67,50,0.25);border-radius:var(--radius)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;color:var(--green-pale);margin-bottom:10px">🚚 LIVRAISON</div>
+            <p style="font-size:12px;color:var(--gray-light);line-height:1.7"><strong style="color:var(--gold)">Gratuite à Douala</strong> · Délai 24–48h<br>Autres villes : tarif selon localisation</p>
+          </div>
+        </div>
+        <div class="product-detail-info">
+          <div class="product-breadcrumb">
+            <span onclick="showPage(&#39;home&#39;)">Accueil</span> / <span onclick="showPage(&#39;shop&#39;)">Boutique</span> / <span id="product-breadcrumb">Produit</span>
+          </div>
+          <div class="product-detail-cat" id="product-cat">Catégorie</div>
+          <h1 class="product-detail-name" id="product-name">Nom du produit</h1>
+          <div class="product-detail-price" id="product-price">0 FCFA</div>
+          <div class="product-detail-currencies" id="product-currencies"></div>
+          <p class="product-detail-desc" id="product-desc">Description</p>
+
+          <div class="option-label">Taille / Variante</div>
+          <div class="option-pills">
+            <div class="option-pill active">S</div>
+            <div class="option-pill">M</div>
+            <div class="option-pill">L</div>
+            <div class="option-pill">XL</div>
+            <div class="option-pill">XXL</div>
+          </div>
+
+          <div class="option-label">Quantité</div>
+          <div class="qty-selector">
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <input class="qty-input" type="number" value="1" min="1" id="qty">
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-whatsapp" onclick="orderViaWhatsApp()">💬 Commander via WhatsApp</button>
+            <button class="btn btn-gold" onclick="addToCartFromDetail()">Ajouter au panier</button>
+            <button class="btn btn-outline-green" onclick="showPage(&#39;shop&#39;)">← Continuer mes achats</button>
+          </div>
+
+          <div class="product-features">
+            <div class="feature-row"><span>✅</span>Produit vérifié avant expédition</div>
+            <div class="feature-row"><span>🚚</span>Livraison gratuite à Douala</div>
+            <div class="feature-row"><span>💬</span>Support WhatsApp 7j/7</div>
+            <div class="feature-row"><span>🔄</span>Retour possible — contactez-nous</div>
+          </div>
+        </div>
+      </div>
+      <!-- Related Products -->
+      <div style="padding:60px 0">
+        <div class="section-header">
+          <div class="label-gold">Dans la même catégorie</div>
+          <h2 class="section-title" style="font-size:clamp(28px,4vw,42px)">Vous aimerez aussi</h2>
+        </div>
+        <div class="products-grid" id="related-products"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     PAGE: À PROPOS
+     ===================================================== -->
+<div class="page" id="page-about">
+  <div class="about-page">
+    <div class="about-hero">
+      <div class="container">
+        <div class="label-gold">Notre Histoire</div>
+        <h1>Née à Douala,<br><em>Faite pour Vous.</em></h1>
+        <div class="divider" style="margin:28px auto"></div>
+      </div>
+    </div>
+    <section class="about-mission">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-img-block">
+            <div class="about-img">🌍</div>
+            <div class="about-img-accent"></div>
+          </div>
+          <div class="about-text">
+            <div class="label-gold">Qui sommes-nous</div>
+            <h2 class="about-title">Une boutique ancrée à Douala, ouverte à tous.</h2>
+            <p class="about-p">Dolvebi est née d'une vision simple : rendre accessible à Douala des produits tendance, de qualité, à des prix justes. Depuis Douala PK8, nous sélectionnons, préparons et livrons vos commandes avec soin.</p>
+            <p class="about-p">Que vous cherchiez la dernière tendance mode, un smartphone performant, ou des produits de beauté efficaces — Dolvebi est votre boutique de confiance, disponible 7j/7 sur WhatsApp.</p>
+            <p class="about-p">Nous croyons que faire ses courses en ligne doit être simple, rapide et agréable. C'est pourquoi nous avons mis le WhatsApp au cœur de notre service client.</p>
+            <div class="hero-stats" style="margin-top:32px;border-top:1px solid rgba(27,67,50,0.3);padding-top:32px">
+              <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Produits</div></div>
+              <div><div class="hero-stat-num">1K+</div><div class="hero-stat-label">Commandes</div></div>
+              <div><div class="hero-stat-num">2024</div><div class="hero-stat-label">Fondée</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="padding:0 0 100px;background:var(--black-soft)">
+      <div class="container" style="padding-top:80px">
+        <div class="section-header">
+          <div class="label-gold">Nos Valeurs</div>
+          <h2 class="section-title">Ce qui nous guide</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">✨</div>
+            <div class="value-title">Qualité</div>
+            <div class="value-desc">Nous sélectionnons des produits testés et vérifiés avant chaque expédition pour garantir votre satisfaction.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💬</div>
+            <div class="value-title">Proximité</div>
+            <div class="value-desc">Notre équipe est disponible 7j/7 sur WhatsApp. Vous avez une question ? Nous répondons vite.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🚚</div>
+            <div class="value-title">Service</div>
+            <div class="value-desc">Livraison gratuite à Douala, emballage soigné et suivi personnalisé — votre commande mérite le meilleur.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     PAGE: CONTACT
+     ===================================================== -->
+<div class="page" id="page-contact">
+  <div class="contact-page">
+    <div class="contact-hero">
+      <div class="container">
+        <div class="label-gold">Nous contacter</div>
+        <h1>Parlez-nous,<br><em>on répond vite.</em></h1>
+        <div class="divider" style="margin:28px auto"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="contact-inner">
+        <div>
+          <div class="label-gold">Coordonnées</div>
+          <h2 class="contact-info-title">L'équipe Dolvebi est là pour vous</h2>
+          <p class="contact-info-text">Pour commander, poser vos questions, signaler un problème ou en savoir plus sur nos produits — contactez-nous via WhatsApp, c'est le moyen le plus rapide.</p>
+          <div class="contact-channels">
+            <a class="contact-channel" href="https://wa.me/message/AWB2FUPZGYARM1" target="_blank">
+              <div class="channel-icon">💬</div>
+              <div>
+                <div class="channel-label">WhatsApp (Le plus rapide)</div>
+                <div class="channel-value">Commandes, questions, suivi — réponse en quelques minutes</div>
+              </div>
+            </a>
+            <a class="contact-channel" href="https://www.facebook.com/share/1B1BDpSrNh" target="_blank">
+              <div class="channel-icon">📘</div>
+              <div>
+                <div class="channel-label">Facebook</div>
+                <div class="channel-value">Dolvebi Boutique</div>
+              </div>
+            </a>
+            <a class="contact-channel" href="https://www.tiktok.com/@dolvebi" target="_blank">
+              <div class="channel-icon">♪</div>
+              <div>
+                <div class="channel-label">TikTok</div>
+                <div class="channel-value">@dolvebi — Nouveautés &amp; tendances</div>
+              </div>
+            </a>
+            <div class="contact-channel" style="cursor:default">
+              <div class="channel-icon">📍</div>
+              <div>
+                <div class="channel-label">Adresse</div>
+                <div class="channel-value">Douala PK8, Cameroun</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:32px;padding:24px;background:rgba(27,67,50,0.15);border:1px solid rgba(27,67,50,0.35);border-radius:var(--radius)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px">🚚 CONDITIONS DE LIVRAISON</div>
+            <p style="font-size:13px;color:var(--gray-light);line-height:1.7"><strong style="color:var(--white)">Douala :</strong> Livraison GRATUITE pour toutes les commandes.<br><strong style="color:var(--white)">Autres villes du Cameroun :</strong> Tarif selon la localisation — contactez-nous pour un devis.<br><strong style="color:var(--white)">Délai :</strong> 24 à 48 heures après confirmation de commande.</p>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3 class="contact-form-title">Envoyer un message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Prénom</label>
+              <input class="form-input" placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nom</label>
+              <input class="form-input" placeholder="Votre nom">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" placeholder="votre@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Sujet</label>
+            <select class="form-select">
+              <option>Passer une commande</option>
+              <option>Suivi de commande</option>
+              <option>Question sur un produit</option>
+              <option>Livraison</option>
+              <option>Retour / Remboursement</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" placeholder="Décrivez votre demande..."></textarea>
+          </div>
+          <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="showToast(&#39;Message envoyé ! Nous vous répondons dans les 24h ✓&#39;,&#39;success&#39;)">Envoyer →</button>
+          <div style="margin-top:20px;text-align:center">
+            <p style="font-size:12px;color:var(--gray-mid);margin-bottom:12px">Ou directement sur WhatsApp pour une réponse immédiate :</p>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%;justify-content:center" onclick="contactWhatsApp()">💬 Ouvrir WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+<script>
+// ============================================================
+// CATALOGUE PRODUITS DOLVEBI
+// ============================================================
+const PRODUCTS = [
+  // VÊTEMENTS
+  { id:1, name:"Robe en Soie Pure", cat:"Vêtements", price:45000, oldPrice:55000, emoji:"👗", desc:"Robe en soie pure, coupe ajustée et élégante. Disponible en noir, bordeaux et blanc nacré. Idéale pour soirées et cérémonies.", badge:"bestseller", tags:["femme","robe"] },
+  { id:2, name:"Costume Homme Slim", cat:"Vêtements", price:78000, emoji:"🧥", desc:"Costume 2 pièces coupe slim moderne, tissu premium. Idéal pour les professionnels et cérémonies. Coloris : noir, anthracite, navy.", badge:"new", tags:["homme","costume"] },
+  { id:3, name:"Robe Cocktail Dorée", cat:"Vêtements", price:52000, oldPrice:65000, emoji:"👘", desc:"Robe cocktail en paillettes dorées, coupe asymétrique tendance. Tailles S à XL disponibles.", badge:"hot", tags:["femme","robe"] },
+  { id:4, name:"Ensemble Traditionnel Femme", cat:"Vêtements", price:38000, emoji:"🪭", desc:"Ensemble 2 pièces en pagne wax de qualité supérieure. Coupe moderne sur tissu traditionnel africain.", badge:"new", tags:["femme","africain"] },
+  { id:5, name:"Chemise Homme Lin Premium", cat:"Vêtements", price:22000, emoji:"👔", desc:"Chemise en lin naturel, légère et respirante. Coupe droite élégante, parfaite pour les journées chaudes.", badge:"", tags:["homme","chemise"] },
+  { id:6, name:"Robe Longue Maxi Florale", cat:"Vêtements", price:34000, emoji:"🌺", desc:"Robe maxi fluide à imprimé floral, dos ouvert. Tissu léger, taille élastiquée. Style bohème & chic.", badge:"new", tags:["femme","robe"] },
+  { id:7, name:"Blazer Femme Structuré", cat:"Vêtements", price:48000, emoji:"🧣", desc:"Blazer à épaulettes légères, coupe architecturale. En sergé de viscose, tombé parfait. Coloris pastel et classiques.", badge:"", tags:["femme","blazer"] },
+  { id:8, name:"Jean Homme Skinny Premium", cat:"Vêtements", price:28000, emoji:"👖", desc:"Jean skinny 5 poches, denim stretch stretch comfort. Noir, bleu indigo et gris disponibles.", badge:"", tags:["homme","jean"] },
+
+  // CHAUSSURES
+  { id:9, name:"Escarpins Talons Aiguilles", cat:"Chaussures", price:42000, oldPrice:52000, emoji:"👠", desc:"Escarpins nude 10cm, cuir verni premium. Bout pointu, semelle antidérapante. Du 36 au 42.", badge:"bestseller", tags:["femme","talon"] },
+  { id:10, name:"Derby Homme Cuir Veau", cat:"Chaussures", price:65000, emoji:"👞", desc:"Derby en cuir de veau Italian, semelle cuir cousue main. Finition vernis, reflet miroir. Tailles 40-46.", badge:"", tags:["homme","cuir"] },
+  { id:11, name:"Sneakers Femme Plateforme", cat:"Chaussures", price:35000, emoji:"👟", desc:"Sneakers chunky tendance, plateforme 5cm. Tige cuir synthétique premium, semelle ultra-légère.", badge:"new", tags:["femme","sneaker"] },
+  { id:12, name:"Sandales Homme Cuir", cat:"Chaussures", price:25000, emoji:"🩴", desc:"Sandales en cuir naturel, semelle anatomique. Idéal pour la chaleur de Douala. Tailles 40-46.", badge:"", tags:["homme","sandales"] },
+  { id:13, name:"Boots Chelsea Femme", cat:"Chaussures", price:55000, emoji:"🥾", desc:"Boots Chelsea en cuir suédé, talon 5cm. Élastiques latéraux, bout arrondi. Noir et camel.", badge:"new", tags:["femme","boots"] },
+
+  // LINGERIE
+  { id:14, name:"Ensemble Dentelle Soie Rose", cat:"Lingerie", price:28000, emoji:"🌸", desc:"Ensemble 2 pièces en dentelle française et soie, soutien-gorge push-up + culotte assortie. Du 85A au 100C.", badge:"bestseller", tags:["femme","dentelle"] },
+  { id:15, name:"Body Dentelle Noir", cat:"Lingerie", price:22000, emoji:"🖤", desc:"Body string en dentelle fine, découpe dos ouvert. Tissu stretch confortable, fermeture pression.", badge:"new", tags:["femme","body"] },
+  { id:16, name:"Nuisette Soie Ivoire", cat:"Lingerie", price:18000, emoji:"🤍", desc:"Nuisette en satin de soie, bretelles fines, coupe empire. Tailles XS à XL. Collection romantique.", badge:"", tags:["femme","nuit"] },
+  { id:17, name:"Ensemble Lingerie Sport Chic", cat:"Lingerie", price:24000, emoji:"💜", desc:"Bralette + shorty en microfibre stretch. Confort absolu, style actif & séduisant. 6 coloris.", badge:"new", tags:["femme","sport"] },
+
+  // BEAUTÉ
+  { id:18, name:"Perruque HD Lace 24 pouces", cat:"Beauté", price:120000, emoji:"💇", desc:"Perruque HD Lace Front, cheveux humains Remy 100%, 24 pouces, ondulée naturellement. Finition invisible et réaliste.", badge:"bestseller", tags:["cheveux","perruque"] },
+  { id:19, name:"Crème Anti-Taches Premium", cat:"Beauté", price:18500, emoji:"✨", desc:"Crème éclat à base de vitamine C et niacinamide. Formule dermatologique testée. Résultats visibles en 14 jours.", badge:"new", tags:["soin","visage"] },
+  { id:20, name:"Palette Maquillage 40 Teintes", cat:"Beauté", price:25000, emoji:"💄", desc:"Palette ombres à paupières 40 teintes, fards mat et shimmer. Pigmentation intense, longue tenue 12h.", badge:"hot", tags:["maquillage","yeux"] },
+  { id:21, name:"Sérum Éclat Vitamine C", cat:"Beauté", price:16000, oldPrice:20000, emoji:"💫", desc:"Sérum concentré vitamine C 20%, acide hyaluronique. Anti-âge, anti-taches, éclat immédiat.", badge:"sale", tags:["soin","sérum"] },
+  { id:22, name:"Kit Extensions Cils 3D", cat:"Beauté", price:8500, emoji:"👁️", desc:"Extensions de cils 3D effet volume intense, faux cils dramatiques. Kit complet 12 paires + colle.", badge:"", tags:["maquillage","cils"] },
+  { id:23, name:"Huile Argan Cheveux Pure", cat:"Beauté", price:12000, emoji:"🌿", desc:"Huile d'argan 100% pure du Maroc. Nourrit, répare et illumine les cheveux secs et abîmés.", badge:"new", tags:["cheveux","huile"] },
+
+  // COMPLÉMENTS ALIMENTAIRES
+  { id:24, name:"Collagène Marin Premium", cat:"Compléments", price:32000, emoji:"💊", desc:"Collagène marin hydrolysé type I & III, 10 000mg. Peau, cheveux, ongles et articulations. 90 gélules.", badge:"bestseller", tags:["peau","anti-age"] },
+  { id:25, name:"Complexe Vitamines B + C", cat:"Compléments", price:15000, emoji:"💉", desc:"Complexe vitamines B1, B6, B12 + Vitamine C 1000mg. Énergie, immunité et système nerveux.", badge:"new", tags:["vitamines","immunité"] },
+  { id:26, name:"Protéine Whey Chocolat", cat:"Compléments", price:48000, emoji:"🍫", desc:"Whey protéine isolate 80% protéines, saveur chocolat intense. 1 kg, 33 portions. Idéal musculation.", badge:"hot", tags:["musculation","protéine"] },
+  { id:27, name:"Oméga 3 Ultra Concentré", cat:"Compléments", price:22000, emoji:"🐟", desc:"Oméga 3 EPA+DHA concentré, huile de poisson purifiée. Cœur, cerveau et inflammation. 60 capsules.", badge:"", tags:["cœur","cerveau"] },
+
+  // ÉLECTRONIQUE
+  { id:28, name:"iPhone 15 Pro Max 256GB", cat:"Électronique", price:580000, emoji:"📱", desc:"iPhone 15 Pro Max 256GB, titane naturel, puce A17 Pro. Débloqué toutes opérateurs. Garantie 1 an.", badge:"hot", tags:["smartphone","apple"] },
+  { id:29, name:"Samsung Galaxy S24 Ultra", cat:"Électronique", price:540000, emoji:"📲", desc:"Galaxy S24 Ultra 512GB, S Pen, Snapdragon 8 Gen 3, appareil photo 200MP. Garantie officielle.", badge:"", tags:["smartphone","samsung"] },
+  { id:30, name:"MacBook Air M3 15\"", cat:"Électronique", price:920000, emoji:"💻", desc:"MacBook Air M3, 16GB RAM, 512GB SSD. Batterie 18h. Idéal pour créatifs et professionnels.", badge:"new", tags:["laptop","apple"] },
+  { id:31, name:"Écouteurs Sony WH-1000XM5", cat:"Électronique", price:185000, oldPrice:220000, emoji:"🎧", desc:"Casque Sony WH-1000XM5, ANC leader du marché, autonomie 30h, son Hi-Res. Confort premium.", badge:"sale", tags:["audio","écouteurs"] },
+  { id:32, name:"Tablette Samsung Tab S9", cat:"Électronique", price:420000, emoji:"📟", desc:"Samsung Galaxy Tab S9, 11\", AMOLED, S Pen inclus. 128GB, 8GB RAM. Pour pros et créatifs.", badge:"new", tags:["tablette","samsung"] },
+  { id:33, name:"HP EliteBook i7 16GB", cat:"Électronique", price:620000, emoji:"🖥️", desc:"HP EliteBook Intel i7 13e Gen, 16GB RAM, 512GB NVMe SSD, 14\" FHD IPS. Entreprise & business.", badge:"", tags:["laptop","hp"] },
+
+  // ÉLECTROMÉNAGER
+  { id:34, name:"Mixeur Blender Pro 2L", cat:"Électroménager", price:45000, emoji:"🥤", desc:"Blender professionnel 2L, 1500W, lames en acier inox. Jus, smoothies, sauces. Anti-vibration.", badge:"new", tags:["cuisine","blender"] },
+  { id:35, name:"Fer à Repasser Vapeur 3000W", cat:"Électroménager", price:28000, emoji:"👕", desc:"Fer à vapeur 3000W, semelle céramique anti-adhésive, réservoir 350ml. Résultats professionnels.", badge:"bestseller", tags:["linge","fer"] },
+  { id:36, name:"Mini Réfrigérateur 60L", cat:"Électroménager", price:95000, emoji:"🧊", desc:"Mini frigo 60L, compartiment congélateur. Économique en énergie, silencieux. Idéal chambre & bureau.", badge:"", tags:["froid","réfrigérateur"] },
+  { id:37, name:"Aspirateur Sans Fil Cyclone", cat:"Électroménager", price:78000, emoji:"🌀", desc:"Aspirateur sans fil 25V, 80min d'autonomie. Filtre HEPA, 3 têtes incluses. Léger et puissant.", badge:"new", tags:["nettoyage","aspirateur"] },
+  { id:38, name:"Cafetière Expresso Automatique", cat:"Électroménager", price:120000, oldPrice:145000, emoji:"☕", desc:"Machine à café automatique, broyeur intégré, écran tactile. Espresso, cappuccino, latte. 1.8L.", badge:"sale", tags:["café","cuisine"] },
+];
+
+const TESTIMONIALS = [
+  { text:"J'ai commandé une robe pour mon mariage et elle était parfaite. Livraison rapide, emballage soigné. Je recommande vraiment Dolvebi !", name:"Nadège Mballa", location:"Douala, Cameroun", emoji:"👩🏾" },
+  { text:"Le service WhatsApp est top ! J'ai posé mes questions, confirmé ma commande et reçu mes chaussures en 24h. Trop facile.", name:"Patrick Essomba", location:"Douala PK10, Cameroun", emoji:"👨🏾" },
+  { text:"Mes produits de beauté étaient 100% authentiques, bien emballés et conformes à la description. Je suis cliente fidèle maintenant.", name:"Aurore Kamga", location:"Yaoundé, Cameroun", emoji:"👩🏿" },
+];
+
+let cart = [];
+let currentPage = 'home';
+let currentProducts = [...PRODUCTS];
+
+// ============================================================
+// PAGE ROUTER
+// ============================================================
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) { target.classList.add('active'); window.scrollTo(0, 0); }
+  currentPage = page;
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + page);
+  if (navEl) navEl.classList.add('active');
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+function showCategory(cat) {
+  showPage('shop');
+  const filtered = PRODUCTS.filter(p => p.cat === cat);
+  renderProducts('shop-products', filtered);
+  document.getElementById('shop-subtitle').textContent = `Catégorie : ${cat}`;
+  document.getElementById('shop-count').textContent = `${filtered.length} produit${filtered.length > 1 ? 's' : ''} trouvé${filtered.length > 1 ? 's' : ''}`;
+  // Update filter checkboxes
+  document.querySelectorAll('.filter-option').forEach(o => {
+    o.classList.remove('checked');
+    o.querySelector('.filter-checkbox').textContent = '';
+  });
+}
+
+// ============================================================
+// RENDER PRODUCTS
+// ============================================================
+function createProductCard(p) {
+  const usd = (p.price * 0.00166).toFixed(0);
+  const badgeHtml = p.badge ? `<span class="product-badge badge-${p.badge}">${getBadgeLabel(p.badge)}</span>` : '';
+  const oldPriceHtml = p.oldPrice ? `<span class="product-price-old">${p.oldPrice.toLocaleString()} FCFA</span>` : '';
+  const whatsappMsg = encodeURIComponent(`Bonjour Dolvebi ! Je veux commander : ${p.name} — ${p.price.toLocaleString()} FCFA`);
+  return `
+  <div class="product-card" onclick="showProductDetail(${p.id})">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder">
+        <span>${p.emoji}</span>
+        <p>${p.cat}</p>
+      </div>
+      ${badgeHtml}
+      <button class="product-wishlist" onclick="event.stopPropagation();showToast('Ajouté aux favoris ♥','success')">♡</button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">${p.cat}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc.substring(0,72)}…</div>
+      <div class="product-price-row">
+        <span class="product-price">${p.price.toLocaleString()} FCFA</span>
+        ${oldPriceHtml}
+      </div>
+      <div class="currency-display">≈ $${usd} USD</div>
+      <div class="product-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/message/AWB2FUPZGYARM1?text=${whatsappMsg}" target="_blank" onclick="event.stopPropagation()">💬 Commander via WhatsApp</a>
+        <div class="product-actions-row">
+          <button class="btn btn-outline-green btn-sm" onclick="event.stopPropagation();showProductDetail(${p.id})">Voir →</button>
+          <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();addToCart(${p.id})">+ Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function getBadgeLabel(badge) {
+  const labels = { new: 'NOUVEAU', sale: 'PROMO', hot: '🔥 TENDANCE', bestseller: '⭐ BEST SELLER' };
+  return labels[badge] || badge.toUpperCase();
+}
+
+function renderProducts(containerId, products) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  if (products.length === 0) {
+    container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray-mid)"><div style="font-size:48px;margin-bottom:16px">🔍</div><p>Aucun produit dans cette catégorie.</p><button class="btn btn-outline-green btn-sm" style="margin-top:20px" onclick="filterByCategory(document.querySelector('.filter-option'),'All')">Voir tout</button></div>`;
+    return;
+  }
+  container.innerHTML = products.map(p => createProductCard(p)).join('');
+}
+
+function renderTestimonials() {
+  const container = document.getElementById('testimonials');
+  if (!container) return;
+  container.innerHTML = TESTIMONIALS.map(t => `
+  <div class="testimonial-card">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">${t.text}</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">${t.emoji}</div>
+      <div>
+        <div class="testimonial-name">${t.name}</div>
+        <div class="testimonial-location">📍 ${t.location}</div>
+      </div>
+    </div>
+  </div>`).join('');
+}
+
+// ============================================================
+// PRODUCT DETAIL
+// ============================================================
+function showProductDetail(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('product-breadcrumb').textContent = p.name;
+  document.getElementById('product-cat').textContent = p.cat;
+  document.getElementById('product-name').textContent = p.name;
+  document.getElementById('product-price').textContent = `${p.price.toLocaleString()} FCFA`;
+  document.getElementById('product-desc').textContent = p.desc;
+  document.getElementById('product-main-img').innerHTML = `<span style="font-size:120px">${p.emoji}</span>`;
+  const usd = (p.price * 0.00166).toFixed(0);
+  const eur = (p.price * 0.00153).toFixed(0);
+  document.getElementById('product-currencies').innerHTML = `≈ <span style="color:var(--gray-light)">$${usd} USD</span> · <span style="color:var(--gray-light)">€${eur} EUR</span>`;
+  const related = PRODUCTS.filter(x => x.cat === p.cat && x.id !== id).slice(0, 4);
+  renderProducts('related-products', related);
+  showPage('product');
+  window._currentProductId = id;
+}
+
+function addToCartFromDetail() {
+  const id = window._currentProductId;
+  if (id) addToCart(id);
+}
+
+function orderViaWhatsApp() {
+  const id = window._currentProductId;
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) { contactWhatsApp(); return; }
+  const qty = document.getElementById('qty')?.value || 1;
+  const msg = encodeURIComponent(`Bonjour Dolvebi ! Je voudrais commander :\n\n📦 ${p.name}\n💰 ${p.price.toLocaleString()} FCFA\n🔢 Quantité : ${qty}\n\nPouvez-vous me confirmer la disponibilité et la livraison ?`);
+  window.open(`https://wa.me/message/AWB2FUPZGYARM1?text=${msg}`, '_blank');
+}
+
+// ============================================================
+// CART
+// ============================================================
+function addToCart(productId) {
+  const p = PRODUCTS.find(x => x.id === productId);
+  if (!p) return;
+  const existing = cart.find(c => c.id === productId);
+  if (existing) { existing.qty++; }
+  else { cart.push({...p, qty: 1}); }
+  updateCartUI();
+  showToast(`"${p.name}" ajouté au panier ✓`, 'success');
+}
+
+function updateCartUI() {
+  const count = cart.reduce((sum, c) => sum + c.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  const total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+  document.getElementById('cart-total').textContent = `${total.toLocaleString()} FCFA`;
+  const list = document.getElementById('cart-items-list');
+  if (cart.length === 0) {
+    list.innerHTML = `<div style="text-align:center;padding:60px 0;color:var(--gray-mid)"><div style="font-size:48px;margin-bottom:16px">🛒</div><p>Votre panier est vide</p></div>`;
+  } else {
+    list.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <div class="cart-item-img">${c.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-price">${(c.price * c.qty).toLocaleString()} FCFA</div>
+        <div style="font-size:11px;color:var(--gray-mid)">Qté : ${c.qty}</div>
+      </div>
+      <div class="cart-item-remove" onclick="removeFromCart(${c.id})">✕</div>
+    </div>`).join('');
+  }
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-overlay');
+  drawer.classList.toggle('open');
+  overlay.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) { showToast('Votre panier est vide', ''); return; }
+  const total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+  const items = cart.map(c => `• ${c.name} x${c.qty} = ${(c.price * c.qty).toLocaleString()} FCFA`).join('\n');
+  const msg = encodeURIComponent(`Bonjour Dolvebi ! Je voudrais passer cette commande :\n\n${items}\n\n💰 Total : ${total.toLocaleString()} FCFA\n\nPouvez-vous me confirmer la disponibilité et organiser la livraison ? Merci !`);
+  window.open(`https://wa.me/message/AWB2FUPZGYARM1?text=${msg}`, '_blank');
+  toggleCart();
+}
+
+// ============================================================
+// UTILS
+// ============================================================
+function contactWhatsApp() {
+  window.open('https://wa.me/message/AWB2FUPZGYARM1', '_blank');
+}
+
+function changeQty(delta) {
+  const input = document.getElementById('qty');
+  if (!input) return;
+  input.value = Math.max(1, parseInt(input.value) + delta);
+}
+
+function filterByCategory(el, cat) {
+  document.querySelectorAll('.filter-option').forEach(o => {
+    o.classList.remove('checked');
+    o.querySelector('.filter-checkbox').textContent = '';
+  });
+  el.classList.add('checked');
+  el.querySelector('.filter-checkbox').textContent = '✓';
+  const filtered = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  currentProducts = filtered;
+  renderProducts('shop-products', filtered);
+  document.getElementById('shop-count').textContent = `${filtered.length} produit${filtered.length > 1 ? 's' : ''} affiché${filtered.length > 1 ? 's' : ''}`;
+}
+
+function sortProducts(value) {
+  let sorted = [...currentProducts];
+  if (value === 'price-asc') sorted.sort((a, b) => a.price - b.price);
+  else if (value === 'price-desc') sorted.sort((a, b) => b.price - a.price);
+  else if (value === 'new') sorted = sorted.filter(p => p.badge === 'new').concat(sorted.filter(p => p.badge !== 'new'));
+  renderProducts('shop-products', sorted);
+}
+
+function showToast(msg, type) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.className = 'toast' + (type === 'success' ? ' toast-success' : '');
+  toast.classList.remove('hidden');
+  setTimeout(() => toast.classList.add('hidden'), 3500);
+}
+
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  showToast('Inscription à la newsletter réussie ✓', 'success');
+  e.target.reset();
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+function initMarquee() {
+  const items = [
+    "👗 Vêtements", "👠 Chaussures", "🌸 Lingerie", "💄 Beauté",
+    "💊 Compléments", "📱 Électronique", "🏠 Électroménager",
+    "🚚 Livraison Gratuite à Douala", "💬 Commande via WhatsApp",
+    "📍 Douala PK8", "✨ Qualité Garantie", "7j/7 Disponible"
+  ];
+  const track = document.getElementById('marquee-track');
+  if (!track) return;
+  const all = [...items, ...items];
+  track.innerHTML = all.map(i => `<span class="marquee-item">${i} <span>✦</span></span>`).join('');
+}
+
+function initParticles() {
+  const container = document.getElementById('particles');
+  if (!container) return;
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `left:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-duration:${Math.random()*20+10}s;animation-delay:${Math.random()*15}s;opacity:0;`;
+    container.appendChild(p);
+  }
+}
+
+// ============================================================
+// INITIALIZE
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Featured: best sellers + hot
+  const featured = PRODUCTS.filter(p => p.badge === 'bestseller' || p.badge === 'hot').slice(0, 8);
+  renderProducts('featured-products', featured.length >= 4 ? featured : PRODUCTS.slice(0, 8));
+  
+  // New arrivals
+  const newArr = PRODUCTS.filter(p => p.badge === 'new').slice(0, 4);
+  renderProducts('new-products', newArr);
+  
+  // Shop
+  renderProducts('shop-products', PRODUCTS);
+  document.getElementById('shop-count').textContent = `${PRODUCTS.length} produits affichés`;
+  document.getElementById('total-count').textContent = PRODUCTS.length;
+  
+  renderTestimonials();
+  initMarquee();
+  initParticles();
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(8,8,8,0.99)';
+      nav.style.borderBottomColor = 'rgba(27,67,50,0.6)';
+    } else {
+      nav.style.background = 'rgba(8,8,8,0.97)';
+      nav.style.borderBottomColor = 'rgba(27,67,50,0.4)';
+    }
+  });
+
+  // Option pills
+  document.querySelectorAll('.option-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      const siblings = this.parentElement.querySelectorAll('.option-pill');
+      siblings.forEach(s => s.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  console.log('%c🌿 DOLVEBI', 'font-size:24px;color:#40916C;font-weight:bold');
+  console.log('%cBoutique Premium · Douala PK8 · Cameroun', 'color:#C9A84C');
+});
+</script>
+
+
+</body></html>
