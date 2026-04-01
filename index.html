@@ -2987,6 +2987,27 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('%cBoutique Premium · Douala PK8 · Cameroun', 'color:#C9A84C');
 });
 </script>
+   
+<script type="module">
+  // Importez les fonctions nécessaires depuis les SDK Firebase via CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
+  // Votre configuration Firebase (issue de votre image)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDkwWEG9eBcb6NeoK-M-wFyWJ3rSp2LAeI",
+    authDomain: "admin-dolvebi.firebaseapp.com",
+    projectId: "admin-dolvebi",
+    storageBucket: "admin-dolvebi.firebasestorage.app",
+    messagingSenderId: "953429615835",
+    appId: "1:953429615835:web:fc9f1ca835a2060123d8fe",
+    measurementId: "G-DZTJJ4BPDP"
+  };
 
+  // Initialisation de Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  
+  console.log("Firebase est bien initialisé pour Dolvebi !");
+</script>
 </body></html>
