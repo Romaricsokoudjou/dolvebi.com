@@ -2989,13 +2989,13 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
    
 <script type="module">
-  // Importez les fonctions nécessaires depuis les SDK Firebase via CDN
+  // On utilise des liens directs (CDN) pour que le navigateur puisse charger Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-  // Votre configuration Firebase (issue de votre image)
+  // Votre configuration Dolvebi
   const firebaseConfig = {
-    apiKey: "AIzaSyDkwWEG9eBcb6NeoK-M-wFyWJ3rSp2LAeI",
+    apiKey: "AIzaSyDkwWEG9eBCb6NeoK-M-wFyWJ3rSp2LAeI",
     authDomain: "admin-dolvebi.firebaseapp.com",
     projectId: "admin-dolvebi",
     storageBucket: "admin-dolvebi.firebasestorage.app",
@@ -3004,10 +3004,10 @@ document.addEventListener('DOMContentLoaded', () => {
     measurementId: "G-DZTJJ4BPDP"
   };
 
-  // Initialisation de Firebase
+  // Initialisation
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  
-  console.log("Firebase est bien initialisé pour Dolvebi !");
+
+  console.log("Firebase est activé !");
 </script>
 </body></html>
